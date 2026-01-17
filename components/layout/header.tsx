@@ -7,23 +7,18 @@ import { Menu, X, ChevronDown } from "lucide-react"
 
 const navigation = [
   {
-    name: "About Us",
-    href: "/about",
-    children: [{ name: "Contact Us", href: "/contact" }],
-  },
-  {
     name: "Programs",
     href: "#",
     children: [
-      { name: "Date Zero", href: "/date-zero" },
-      { name: "Level 5 Life", href: "/level-5-life" },
-      { name: "Blueprints", href: "/blueprints" },
+      { name: "The 45 Day Awakening", href: "/date-zero" },
+      { name: "LVL 5 LIFE", href: "/level-5-life" },
+      { name: "Fit & Feminine", href: "/fit-and-feminine" },
     ],
   },
-  { name: "Podcast", href: "/podcast" },
+  { name: "1-on-1 Coaching", href: "/one-on-one-coaching" },
   { name: "Speaking", href: "/speaking" },
-  { name: "1 on 1 Coaching", href: "/coaching" },
   { name: "Events", href: "/events" },
+  { name: "Podcast", href: "/podcast" },
 ]
 
 export function GynergyComHeader() {
