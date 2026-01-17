@@ -4,6 +4,7 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
 export default function FitAndFemininePage() {
@@ -369,7 +370,7 @@ function FitFeminineAbout() {
     <section ref={ref} className="py-24 lg:py-32 bg-black px-6">
       <div className="container mx-auto max-w-5xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Image placeholder */}
+          {/* Yesi Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -377,17 +378,14 @@ function FitFeminineAbout() {
             className="relative aspect-[3/4] max-w-md mx-auto"
           >
             <div className="absolute -inset-4 bg-gradient-to-br from-rose-500/20 via-transparent to-fuchsia-500/20 blur-xl" />
-            <div className="relative overflow-hidden border border-white/10 bg-gradient-to-br from-[#1A1A1A] to-black h-full flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-rose-500/20 to-fuchsia-500/20 flex items-center justify-center">
-                  <svg className="w-12 h-12 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                    <path strokeLinecap="square" d="M12 18.75c4.97 0 9-2.686 9-6s-4.03-6-9-6-9 2.686-9 6 4.03 6 9 6z" />
-                    <path strokeLinecap="square" d="M12 12.75v-9M8 6l4-3 4 3" />
-                  </svg>
-                </div>
-                <p className="text-white/40 text-sm font-inter">Yesi</p>
-                <p className="text-white/30 text-xs font-inter mt-1">Co-Founder, GYNERGY</p>
-              </div>
+            <div className="relative overflow-hidden border border-white/10 h-full">
+              <Image
+                src="/founders/YESI.JPG"
+                alt="Yesi - Co-Founder of GYNERGY and Fit & Feminine Guide"
+                fill
+                className="object-cover object-top"
+                priority
+              />
             </div>
           </motion.div>
 
