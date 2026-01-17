@@ -48,7 +48,9 @@ export function BlogNewsletter() {
         >
           <div className="bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] rounded-3xl border border-[#2E2E2E] p-8 md:p-12 text-center">
             <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#F8F812]/10 border border-[#F8F812]/20 flex items-center justify-center">
-              <span className="text-3xl">✉️</span>
+              <svg className="w-8 h-8 text-[#F8F812]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
             </div>
 
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 font-inter">
@@ -56,7 +58,7 @@ export function BlogNewsletter() {
             </h2>
 
             <p className="text-white/60 mb-8 leading-relaxed">
-              Join 5,000+ high-performers receiving practical wisdom on health,
+              Join high-performers receiving practical wisdom on health,
               relationships, mindset, and purpose every week.
             </p>
 

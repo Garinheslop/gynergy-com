@@ -20,7 +20,13 @@ function PostCard({ post, index, isInView }: { post: BlogPost; index: number; is
         {/* Image placeholder */}
         <div className="relative aspect-[16/10] mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] border border-[#2E2E2E] group-hover:border-[#F8F812]/30 transition-all">
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-4xl">{category?.icon || "📄"}</span>
+            {category?.icon ? (
+              <span className="text-4xl">{category.icon}</span>
+            ) : (
+              <svg className="w-10 h-10 text-white/40" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+              </svg>
+            )}
           </div>
           {post.featured && (
             <div className="absolute top-3 left-3 px-2 py-1 bg-[#F8F812] text-black text-xs font-bold rounded">

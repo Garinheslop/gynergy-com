@@ -53,7 +53,7 @@ export function NewsletterSection() {
                 </h2>
 
                 <p className="text-white/60 mb-6 font-inter">
-                  Join 5,000+ people receiving our weekly insights on health, relationships,
+                  Join our growing community receiving weekly insights on health, relationships,
                   mindset, and purpose. No spam, just value.
                 </p>
 
@@ -97,7 +97,7 @@ export function NewsletterSection() {
                   <span>|</span>
                   <span>Unsubscribe anytime</span>
                   <span>|</span>
-                  <span>5,000+ subscribers</span>
+                  <span>Growing community</span>
                 </div>
               </motion.div>
             </div>

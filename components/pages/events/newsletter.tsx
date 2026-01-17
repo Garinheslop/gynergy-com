@@ -22,7 +22,9 @@ export function EventsNewsletter() {
         >
           <div className="bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] rounded-3xl border border-[#2E2E2E] p-8 lg:p-12">
             <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#AFECDB]/10 border border-[#AFECDB]/30 flex items-center justify-center">
-              <span className="text-3xl">🎟️</span>
+              <svg className="w-8 h-8 text-[#AFECDB]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22 10V6c0-1.1-.9-2-2-2H4c-1.1 0-1.99.9-1.99 2v4c1.1 0 1.99.9 1.99 2s-.89 2-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4c-1.1 0-2-.9-2-2s.9-2 2-2zm-9 7.5h-2v-2h2v2zm0-4.5h-2v-2h2v2zm0-4.5h-2v-2h2v2z"/>
+              </svg>
             </div>
 
             <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4 font-inter">

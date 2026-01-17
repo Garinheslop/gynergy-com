@@ -71,7 +71,7 @@ export function L5LHero() {
             className="text-xl md:text-2xl text-white/70 mb-8 leading-relaxed max-w-3xl mx-auto"
           >
             Level 5 Life is a 12-month mastermind for high-achievers ready to transform
-            every dimension of their existence—health, relationships, mindset, and purpose—
+            every dimension of their existence—health, relationships, wealth, mindset, and purpose—
             with world-class coaching and an elite community.
           </motion.p>
 
@@ -98,15 +98,21 @@ export function L5LHero() {
             className="flex flex-wrap justify-center gap-8 text-white/50 text-sm"
           >
             <div className="flex items-center gap-2">
-              <span className="text-2xl">🏆</span>
+              <svg className="w-6 h-6 text-[#F8F812]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+              </svg>
               <span>Limited to 20 Members</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-2xl">🌍</span>
+              <svg className="w-6 h-6 text-[#F8F812]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
               <span>2 Exclusive Retreats</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-2xl">🤖</span>
+              <svg className="w-6 h-6 text-[#F8F812]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 9V7c0-1.1-.9-2-2-2h-3c0-1.66-1.34-3-3-3S9 3.34 9 5H6c-1.1 0-2 .9-2 2v2c-1.66 0-3 1.34-3 3s1.34 3 3 3v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c1.66 0 3-1.34 3-3s-1.34-3-3-3zM7.5 11.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5S9.83 13 9 13s-1.5-.67-1.5-1.5zM16 17H8v-2h8v2zm-1-4c-.83 0-1.5-.67-1.5-1.5S14.17 10 15 10s1.5.67 1.5 1.5S15.83 13 15 13z"/>
+              </svg>
               <span>AI-Powered Growth</span>
             </div>
           </motion.div>

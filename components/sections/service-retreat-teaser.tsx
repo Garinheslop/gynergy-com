@@ -128,8 +128,8 @@ export function ServiceRetreatTeaser() {
 
               {/* Impact stat */}
               <div className="absolute bottom-4 left-4 bg-[#1A1A1A]/90 border border-[#2E2E2E] px-4 py-3">
-                <p className="text-[#AFECDB] font-bebas text-2xl">20+</p>
-                <p className="text-white/50 text-xs font-inter">Homes Built</p>
+                <p className="text-[#AFECDB] font-bebas text-2xl">Service</p>
+                <p className="text-white/50 text-xs font-inter">Build Homes For Families</p>
               </div>
             </div>
 
@@ -214,7 +214,7 @@ export function ServiceRetreatTeaser() {
             "The moment you hand the keys to a family who never thought they'd have a home—that's when everything changes."
           </p>
           <p className="text-[#FFD700] text-sm font-oswald mt-4 uppercase tracking-wider">
-            — Garin Hess, Founder
+            — Garin Heslop, Founder
           </p>
         </motion.div>
 

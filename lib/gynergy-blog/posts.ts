@@ -30,24 +30,24 @@ export type BlogCategory =
   | "podcast"
 
 export const categories: { id: BlogCategory; label: string; icon: string; description: string }[] = [
-  { id: "health", label: "Health", icon: "💪", description: "Optimize your physical vitality" },
-  { id: "relationships", label: "Relationships", icon: "❤️", description: "Deepen your connections" },
-  { id: "mindset", label: "Mindset", icon: "🧠", description: "Master your mental state" },
-  { id: "purpose", label: "Purpose", icon: "🎯", description: "Live with intention" },
-  { id: "transformation", label: "Transformation", icon: "✨", description: "Stories of change" },
-  { id: "podcast", label: "Podcast", icon: "🎙️", description: "Episode highlights" },
+  { id: "health", label: "Health", icon: "health", description: "Optimize your physical vitality" },
+  { id: "relationships", label: "Relationships", icon: "heart", description: "Deepen your connections" },
+  { id: "mindset", label: "Mindset", icon: "globe", description: "Master your mental state" },
+  { id: "purpose", label: "Purpose", icon: "compass", description: "Live with intention" },
+  { id: "transformation", label: "Transformation", icon: "star", description: "Stories of change" },
+  { id: "podcast", label: "Podcast", icon: "microphone", description: "Episode highlights" },
 ]
 
 export const authors: Record<string, Author> = {
   garin: {
     name: "Garin Heslop",
     role: "Co-Founder",
-    image: "👨‍💼"
+    image: "/founders/Garin.JPEG"
   },
   yesi: {
     name: "Yesi Heslop",
     role: "Co-Founder",
-    image: "👩‍💼"
+    image: "/founders/YESI.JPG"
   }
 }
 
@@ -56,15 +56,15 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "the-level-5-life-framework-explained",
     title: "The Level 5 Life Framework Explained",
-    excerpt: "Discover the four pillars that create extraordinary results across every area of your life—and why working on all four simultaneously is the key to lasting transformation.",
+    excerpt: "Discover the five pillars that create extraordinary results across every area of your life—and why working on all five simultaneously is the key to lasting transformation.",
     content: `
 # The Level 5 Life Framework Explained
 
 For years, I chased success in silos. I'd focus intensely on my health, only to watch my relationships suffer. I'd pour everything into my career, only to feel empty despite the achievements.
 
-Then I discovered something that changed everything: **true transformation happens when you work on all four pillars simultaneously.**
+Then I discovered something that changed everything: **true transformation happens when you work on all five pillars simultaneously.**
 
-## The Four Pillars
+## The Five Pillars
 
 ### 1. Health
 Your body is the vehicle for everything else. Without energy and vitality, you can't show up fully in any other area.
@@ -72,29 +72,32 @@ Your body is the vehicle for everything else. Without energy and vitality, you c
 ### 2. Relationships
 We're social creatures. The quality of your relationships directly impacts your happiness, success, and longevity.
 
-### 3. Mindset
+### 3. Wealth
+Financial abundance creates freedom and options. It's not about greed—it's about having the resources to live your purpose fully.
+
+### 4. Mindset
 Your thoughts create your reality. Master your mind, and you master your life.
 
-### 4. Purpose
+### 5. Purpose
 Without meaning, even success feels hollow. Purpose is what gets you out of bed excited every morning.
 
-## Why All Four Matter
+## Why All Five Matter
 
 Here's what most people don't understand: these pillars aren't separate. They're interconnected.
 
-When your health suffers, your mindset follows. When your relationships are strained, your purpose feels unclear. When you lack purpose, you don't take care of your health.
+When your health suffers, your mindset follows. When your relationships are strained, your purpose feels unclear. When your finances are stressed, you can't focus on growth. When you lack purpose, you don't take care of your health.
 
 **But the inverse is also true.**
 
-When you improve one area, it creates momentum in the others. And when you intentionally work on all four? That's when magic happens.
+When you improve one area, it creates momentum in the others. And when you intentionally work on all five? That's when magic happens.
 
 ## Getting Started
 
-The Level 5 Life isn't about perfection. It's about progress in all four areas, simultaneously.
+The Level 5 Life isn't about perfection. It's about progress in all five areas, simultaneously.
 
 Start by asking yourself: "On a scale of 1-10, where am I in each pillar?" Then identify one small action you can take in each area this week.
 
-Small, consistent actions across all four pillars create exponential results.
+Small, consistent actions across all five pillars create exponential results.
 
 ---
 

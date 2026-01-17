@@ -32,7 +32,9 @@ export function L5LFounders() {
                 <div className="aspect-[4/5] bg-gradient-to-br from-[#1A1A1A] via-[#0D0D0D] to-black flex items-center justify-center">
                   <div className="text-center p-8">
                     <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#F8F812]/20 to-[#AFECDB]/20 flex items-center justify-center">
-                      <span className="text-5xl">👫</span>
+                      <svg className="w-16 h-16 text-[#F8F812]/60" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                      </svg>
                     </div>
                     <p className="text-white/40 text-sm">
                       Garin & Yesi
@@ -91,10 +93,10 @@ export function L5LFounders() {
             {/* Credentials */}
             <div className="mt-8 grid grid-cols-2 gap-4">
               {[
-                { label: "Clients Coached", value: "500+" },
-                { label: "Countries Reached", value: "15+" },
-                { label: "Retreats Hosted", value: "20+" },
-                { label: "Lives Transformed", value: "1,000+" }
+                { label: "Coaching Experience", value: "10+ Years" },
+                { label: "Service Retreats", value: "Mexico" },
+                { label: "Mastermind Focus", value: "5 Pillars" },
+                { label: "Commitment", value: "100%" }
               ].map((stat) => (
                 <div key={stat.label} className="bg-[#1A1A1A] border border-[#2E2E2E] rounded-xl p-4">
                   <p className="text-2xl font-bold text-[#F8F812] font-inter">{stat.value}</p>

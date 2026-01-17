@@ -201,8 +201,8 @@ export function DateZeroPreview() {
                 transition={{ duration: 0.5, delay: 0.8 }}
                 className="absolute top-10 right-0 bg-[#1A1A1A] border border-[#2E2E2E] px-4 py-3"
               >
-                <p className="text-[#AFECDB] font-bebas text-2xl">95%</p>
-                <p className="text-white/50 text-xs font-inter">Complete The Journey</p>
+                <p className="text-[#AFECDB] font-bebas text-2xl">45</p>
+                <p className="text-white/50 text-xs font-inter">Days To Awakening</p>
               </motion.div>
 
               <motion.div
@@ -211,8 +211,8 @@ export function DateZeroPreview() {
                 transition={{ duration: 0.5, delay: 0.9 }}
                 className="absolute bottom-10 left-0 bg-[#1A1A1A] border border-[#2E2E2E] px-4 py-3"
               >
-                <p className="text-[#FFD700] font-bebas text-2xl">500+</p>
-                <p className="text-white/50 text-xs font-inter">Lives Transformed</p>
+                <p className="text-[#FFD700] font-bebas text-2xl">Gratitude</p>
+                <p className="text-white/50 text-xs font-inter">Foundation Of Change</p>
               </motion.div>
             </div>
           </motion.div>

@@ -19,18 +19,26 @@ export function EventsUpcoming() {
       description: "Launch your transformation journey with an immersive weekend of clarity, connection, and commitment.",
       spots: "12 spots left",
       price: "Included with L5L",
-      image: "🎯",
+      icon: (
+        <svg className="w-10 h-10 text-[#AFECDB]" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+        </svg>
+      ),
       featured: true
     },
     {
-      title: "Date Zero Live Workshop",
+      title: "The 45 Day Awakening Workshop",
       type: "Workshop",
       date: "April 5, 2025",
       location: "Virtual Event",
-      description: "A hands-on workshop for couples ready to deepen their connection and communication.",
+      description: "A transformative workshop to deepen your connection with yourself through gratitude and purpose.",
       spots: "20 spots left",
-      price: "$197/couple",
-      image: "💑",
+      price: "$197",
+      icon: (
+        <svg className="w-10 h-10 text-white/70" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      ),
       featured: false
     },
     {
@@ -41,7 +49,11 @@ export function EventsUpcoming() {
       description: "Join us for a live podcast recording with special guests and audience Q&A.",
       spots: "50 spots left",
       price: "Free",
-      image: "🎙️",
+      icon: (
+        <svg className="w-10 h-10 text-white/70" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.91-3c-.49 0-.9.36-.98.85C16.52 14.2 14.47 16 12 16s-4.52-1.8-4.93-4.15c-.08-.49-.49-.85-.98-.85-.61 0-1.09.54-1 1.14.49 3 2.89 5.35 5.91 5.78V20c0 .55.45 1 1 1s1-.45 1-1v-2.08c3.02-.43 5.42-2.78 5.91-5.78.1-.6-.39-1.14-1-1.14z"/>
+        </svg>
+      ),
       featured: false
     }
   ]
@@ -73,13 +85,13 @@ export function EventsUpcoming() {
               <div className="flex flex-col lg:flex-row lg:items-center gap-6">
                 {/* Icon */}
                 <div
-                  className={`w-20 h-20 rounded-2xl flex items-center justify-center text-4xl flex-shrink-0 ${
+                  className={`w-20 h-20 rounded-2xl flex items-center justify-center flex-shrink-0 ${
                     event.featured
                       ? "bg-[#AFECDB]/10 border border-[#AFECDB]/30"
                       : "bg-[#2E2E2E]"
                   }`}
                 >
-                  {event.image}
+                  {event.icon}
                 </div>
 
                 {/* Content */}
@@ -100,13 +112,22 @@ export function EventsUpcoming() {
                   <p className="text-white/60 mb-4">{event.description}</p>
                   <div className="flex flex-wrap gap-4 text-sm text-white/50">
                     <span className="flex items-center gap-2">
-                      <span>📅</span> {event.date}
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/>
+                      </svg>
+                      {event.date}
                     </span>
                     <span className="flex items-center gap-2">
-                      <span>📍</span> {event.location}
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                      </svg>
+                      {event.location}
                     </span>
                     <span className="flex items-center gap-2 text-[#AFECDB]">
-                      <span>🎟️</span> {event.spots}
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22 10V6c0-1.11-.9-2-2-2H4c-1.1 0-1.99.89-1.99 2v4c1.1 0 1.99.9 1.99 2s-.89 2-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4c-1.1 0-2-.9-2-2s.9-2 2-2zm-9 7.5h-2v-2h2v2zm0-4.5h-2v-2h2v2zm0-4.5h-2v-2h2v2z"/>
+                      </svg>
+                      {event.spots}
                     </span>
                   </div>
                 </div>
