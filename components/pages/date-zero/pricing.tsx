@@ -3,7 +3,6 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
-import { SectionHeader } from "@/components/ui/section-label"
 import { Button } from "@/components/ui/button"
 
 export function DateZeroPricing() {
@@ -12,73 +11,90 @@ export function DateZeroPricing() {
 
   const tiers = [
     {
-      name: "Essential",
-      price: "$497",
-      description: "Perfect for couples ready to start their transformation journey.",
+      name: "Date Zero Journal",
+      price: "$197",
+      description: "The standalone self-guided gratitude experience. Perfect for those ready to start their transformation independently.",
       features: [
-        "All 8 video modules",
-        "Weekly workbooks & exercises",
-        "Private community access",
-        "ARIA AI companion (Basic)",
-        "Date night ideas library",
+        "45-day guided journal with daily prompts",
+        "Morning & evening gratitude rituals",
+        "Reflection exercises for each phase",
+        "Digital companion guide",
+        "Lifetime access to journal content",
         "30-day satisfaction guarantee"
       ],
       popular: false,
       accent: "#AFECDB",
-      cta: "Start Essential"
+      cta: "Get the Journal"
     },
     {
-      name: "Complete",
-      price: "$997",
-      description: "Everything in Essential plus live coaching and premium support.",
+      name: "The 45 Day Awakening",
+      price: "$1,497",
+      description: "The complete transformation experience with coaching, community, and the Date Zero Journal included.",
       features: [
-        "Everything in Essential",
-        "Weekly live group coaching calls",
-        "Priority community support",
-        "ARIA AI companion (Premium)",
-        "Private couple check-ins (2x)",
-        "Bonus: Communication Toolkit",
-        "60-day satisfaction guarantee"
+        "Date Zero Journal (included)",
+        "Weekly live coaching with Garin & Yesi",
+        "Private community of fellow awakeners",
+        "ARIA AI companion for 24/7 support",
+        "Shadow work & forgiveness practices",
+        "Service mindset development",
+        "Mexico retreat preparation materials",
+        "45-day satisfaction guarantee"
       ],
       popular: true,
-      accent: "#F8F812",
-      cta: "Start Complete"
+      accent: "#FFD700",
+      cta: "Begin Your Awakening"
     },
     {
-      name: "VIP",
+      name: "Awakening + Retreat Bundle",
       price: "$2,497",
-      description: "The ultimate transformation with private 1:1 coaching.",
+      originalPrice: "$2,994",
+      savings: "SAVE $500",
+      description: "The ultimate transformation: 45 Day Awakening + Service Retreat in Ensenada, Mexico.",
       features: [
-        "Everything in Complete",
-        "4 private couple coaching sessions",
-        "Direct message access to Garin & Yesi",
-        "Personalized transformation plan",
-        "Bonus: Intimacy Mastery Workshop",
-        "Bonus: Conflict Resolution Intensive",
+        "Everything in The 45 Day Awakening",
+        "Service Retreat in Ensenada, Mexico",
+        "Transportation from San Diego",
+        "Beachfront lodging included",
+        "All meals provided",
+        "Home building service project",
+        "Orphanage visit & donations",
+        "\"Break Free\" teachings & workshops",
         "90-day satisfaction guarantee"
       ],
       popular: false,
       accent: "#AFECDB",
-      cta: "Apply for VIP"
+      cta: "Get the Bundle"
     }
   ]
 
   return (
     <section id="pricing" ref={ref} className="relative py-24 lg:py-32 bg-gradient-to-b from-black via-[#050505] to-black overflow-hidden">
       {/* Background elements */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#AFECDB]/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#F8F812]/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#AFECDB]/5 blur-3xl" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#FFD700]/5 blur-3xl" />
 
       <div className="relative z-10 container mx-auto px-6">
-        <SectionHeader
-          label="Investment"
-          labelVariant="teal"
-          title="Choose Your Path"
-          subtitle="Every package is backed by our satisfaction guarantee. If you don't see meaningful progress, we'll work with you or refund your investment."
-        />
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-[#FFD700] text-sm font-medium tracking-wider uppercase font-oswald">
+            INVESTMENT
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-4 mb-6 font-bebas">
+            CHOOSE YOUR PATH TO TRANSFORMATION
+          </h2>
+          <p className="text-white/60 text-lg max-w-2xl mx-auto font-inter">
+            Every option is backed by our satisfaction guarantee. If you commit to the work
+            and don't experience meaningful transformation, we'll make it right.
+          </p>
+        </motion.div>
 
         {/* Pricing cards */}
-        <div className="mt-16 grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-6">
           {tiers.map((tier, index) => (
             <motion.div
               key={tier.name}
@@ -90,34 +106,48 @@ export function DateZeroPricing() {
               {/* Popular badge */}
               {tier.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                  <span className="bg-[#F8F812] text-black px-4 py-1 rounded-full text-xs font-bold">
+                  <span className="bg-[#FFD700] text-black px-4 py-1 text-xs font-bold font-oswald">
                     MOST POPULAR
                   </span>
                 </div>
               )}
 
+              {/* Savings badge for bundle */}
+              {tier.savings && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                  <span className="bg-[#AFECDB] text-black px-4 py-1 text-xs font-bold font-oswald">
+                    {tier.savings}
+                  </span>
+                </div>
+              )}
+
               <div
-                className={`h-full bg-gradient-to-b from-[#1A1A1A] to-[#0D0D0D] rounded-2xl border p-8 transition-all hover:shadow-xl ${
+                className={`h-full bg-gradient-to-b from-[#1A1A1A] to-[#0D0D0D] border p-8 transition-all hover:shadow-xl ${
                   tier.popular
-                    ? 'border-[#F8F812]/50 shadow-lg shadow-[#F8F812]/10'
+                    ? 'border-[#FFD700]/50 shadow-lg shadow-[#FFD700]/10'
                     : 'border-[#2E2E2E] hover:border-white/20'
                 }`}
               >
                 {/* Header */}
                 <div className="text-center mb-8">
                   <h3
-                    className="text-xl font-bold mb-2 font-inter"
+                    className="text-xl font-bold mb-2 font-oswald"
                     style={{ color: tier.accent }}
                   >
                     {tier.name}
                   </h3>
-                  <div className="flex items-baseline justify-center gap-1 mb-3">
+                  <div className="flex items-baseline justify-center gap-2 mb-3">
+                    {tier.originalPrice && (
+                      <span className="text-white/40 text-lg line-through">
+                        {tier.originalPrice}
+                      </span>
+                    )}
                     <span className="text-4xl font-bold text-white font-inter">
                       {tier.price}
                     </span>
                     <span className="text-white/40 text-sm">one-time</span>
                   </div>
-                  <p className="text-white/60 text-sm">{tier.description}</p>
+                  <p className="text-white/60 text-sm font-inter">{tier.description}</p>
                 </div>
 
                 {/* Features */}
@@ -125,7 +155,7 @@ export function DateZeroPricing() {
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3 text-sm">
                       <div
-                        className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                        className="w-5 h-5 flex items-center justify-center flex-shrink-0 mt-0.5"
                         style={{ backgroundColor: `${tier.accent}20` }}
                       >
                         <svg
@@ -138,14 +168,14 @@ export function DateZeroPricing() {
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <span className="text-white/70">{feature}</span>
+                      <span className="text-white/70 font-inter">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* CTA */}
                 <Button
-                  href={tier.name === "VIP" ? "/date-zero/apply" : "/date-zero/checkout"}
+                  href="#contact"
                   variant={tier.popular ? "primary" : "outline"}
                   className="w-full"
                   size="lg"
@@ -157,17 +187,19 @@ export function DateZeroPricing() {
           ))}
         </div>
 
-        {/* Guarantee badge */}
+        {/* Guarantee badge - SVG shield icon instead of emoji */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mt-12 text-center"
         >
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-[#1A1A1A] border border-[#2E2E2E] rounded-full">
-            <span className="text-2xl">🛡️</span>
-            <span className="text-white/70 text-sm">
-              <strong className="text-white">Risk-Free:</strong> Full refund if you don't see progress
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-[#1A1A1A] border border-[#2E2E2E]">
+            <svg className="w-6 h-6 text-[#FFD700]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+            </svg>
+            <span className="text-white/70 text-sm font-inter">
+              <strong className="text-white">Risk-Free Guarantee:</strong> Complete the program and see transformation, or get a full refund
             </span>
           </div>
         </motion.div>
@@ -177,7 +209,7 @@ export function DateZeroPricing() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="mt-8 text-center text-white/40 text-sm"
+          className="mt-8 text-center text-white/40 text-sm font-inter"
         >
           <p>Payment plans available • Secure checkout • Instant access</p>
         </motion.div>

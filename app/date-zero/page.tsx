@@ -7,13 +7,13 @@ import { DateZeroFAQ } from "@/components/pages/date-zero/faq"
 import { DateZeroCTA } from "@/components/pages/date-zero/cta"
 
 export const metadata: Metadata = {
-  title: "Date Zero | 8-Week Relationship Transformation Program",
+  title: "The 45 Day Awakening | Personal Transformation Through Gratitude | GYNERGY",
   description:
-    "Transform your relationship in just 8 weeks. Date Zero is a proven program designed for couples ready to reignite their connection, improve communication, and build an unbreakable bond.",
+    "Transform your life in 45 days through the power of gratitude. The 45 Day Awakening includes the Date Zero Journal, weekly coaching, community support, and an optional Service Retreat in Mexico.",
   openGraph: {
-    title: "Date Zero | Relationship Transformation",
+    title: "The 45 Day Awakening | Personal Transformation Through Gratitude",
     description:
-      "Transform your relationship in 8 weeks. Proven program for couples ready to reconnect.",
+      "A 45-day transformational journey that will fundamentally change how you see yourself, your circumstances, and your purpose.",
     url: "https://gynergy.com/date-zero",
     type: "website",
   },

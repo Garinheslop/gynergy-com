@@ -3,7 +3,6 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef, useState } from "react"
-import { SectionHeader } from "@/components/ui/section-label"
 
 export function DateZeroFAQ() {
   const ref = useRef(null)
@@ -12,51 +11,70 @@ export function DateZeroFAQ() {
 
   const faqs = [
     {
-      question: "Is Date Zero right for us if we're in a crisis?",
-      answer: "Date Zero is designed for couples at various stages—from those wanting to deepen an already good relationship to those working through significant challenges. If you're in immediate crisis (domestic abuse, severe mental health emergencies), we recommend seeking professional help first. For relationship struggles, communication breakdowns, or feeling disconnected, Date Zero provides a structured path forward."
+      question: "What exactly is The 45 Day Awakening?",
+      answer: "The 45 Day Awakening is a transformational journey built on the foundation of gratitude. Over 45 days, you'll rewire how you see yourself, your circumstances, and your purpose through daily journaling (the Date Zero Journal), weekly coaching calls with Garin & Yesi, a private community of fellow transformers, and 24/7 ARIA AI support. It's not just a course—it's a complete personal transformation experience."
     },
     {
-      question: "Do we both need to participate?",
-      answer: "Yes, Date Zero works best when both partners are committed to the process. The exercises, conversations, and growth opportunities are designed for couples to experience together. That said, even if one partner is more hesitant initially, we've seen many couples where enthusiasm became mutual once they started seeing results."
+      question: "What is the Date Zero Journal?",
+      answer: "The Date Zero Journal is the heart of the transformation experience. It contains 45 days of guided prompts, morning and evening gratitude rituals, reflection exercises for each phase (Foundation, Deep Work, Integration), and space for personal insights. You can purchase the journal alone for $197 as a self-guided experience, or get it included with The 45 Day Awakening full program."
     },
     {
-      question: "How much time do we need to commit each week?",
-      answer: "Plan for about 3-4 hours per week: 30-60 minutes for the video content, 1-2 hours for the exercises and conversations, and optional time for the live coaching calls. The key is consistency rather than marathon sessions. Many couples find dedicating two 'Date Zero nights' per week works well."
+      question: "Who is this program for?",
+      answer: "The 45 Day Awakening is for anyone ready to fundamentally shift how they experience life. Whether you're dealing with burnout, seeking more meaning, feeling disconnected from purpose, or simply want to cultivate deeper gratitude and joy—this program meets you where you are. It's for individuals committed to doing the inner work required for lasting transformation."
     },
     {
-      question: "What if we've tried couples therapy before?",
-      answer: "Date Zero complements therapy—it doesn't replace it. Many of our most successful couples have also worked with therapists. What Date Zero offers is a structured, progressive curriculum you can work through together at home, plus a community of couples on similar journeys. Think of it as the 'homework' and practice ground for relationship growth."
+      question: "What's included in the Service Retreat?",
+      answer: "The Service Retreat in Ensenada, Mexico is a life-changing experience that includes: transportation from San Diego, beachfront lodging, all meals, participation in building homes for families in need, orphanage visits and donations, and exclusive 'Break Free' teachings and workshops. It's the culmination of your gratitude journey—putting your transformation into action through service."
     },
     {
-      question: "How long do we have access to the materials?",
-      answer: "You get lifetime access to all course materials, including any future updates. The live coaching calls are available during your program period, but recordings are added to your member area. The community access continues as long as you remain an active, engaged member."
+      question: "How much time do I need to commit each day?",
+      answer: "Plan for about 20-30 minutes daily for your journal practice (morning and evening rituals). Weekly coaching calls are 60-90 minutes. The community and ARIA AI support are available whenever you need them. The key is consistency—showing up daily, even if briefly, creates the compound effect of transformation."
+    },
+    {
+      question: "What is ARIA AI and how does it support me?",
+      answer: "ARIA is your AI companion throughout the journey, available 24/7 for personalized guidance, encouragement, and support. She helps you process journal reflections, provides prompts when you're stuck, celebrates your wins, and keeps you accountable to your transformation goals. Think of ARIA as a wise friend who's always there when you need her."
+    },
+    {
+      question: "What's the difference between the Journal Only and the Full Program?",
+      answer: "The Date Zero Journal ($197) is a powerful self-guided experience with all 45 days of prompts and exercises. The 45 Day Awakening ($1,497) includes the journal PLUS weekly live coaching, private community access, ARIA AI support, shadow work practices, and preparation materials for the Service Retreat. The full program provides accountability, community, and expert guidance for deeper transformation."
     },
     {
       question: "What's the satisfaction guarantee?",
-      answer: "We believe in our program completely. If you complete the full 8 weeks, do the exercises, and don't see meaningful improvement in your relationship, contact us within your guarantee period (30, 60, or 90 days depending on your package) for a full refund. We'll also offer a complimentary strategy session to help identify what might work better for your specific situation."
+      answer: "We believe completely in this program. If you commit to the full 45 days—doing the daily journal work, attending calls, engaging with the community—and don't experience meaningful transformation, contact us within your guarantee period (30, 45, or 90 days depending on your package) for a full refund. We'll also offer a complimentary strategy session to help identify what might work better for your situation."
     },
     {
-      question: "Can we start at any time?",
-      answer: "Yes! Once you enroll, you get immediate access to all materials. You can begin your 8-week journey whenever you're ready. We recommend starting on a weekend when you can dedicate quality time to the first module together."
+      question: "Can I do the program if I can't attend the Mexico retreat?",
+      answer: "Absolutely. The 45 Day Awakening is a complete transformation experience on its own. The Service Retreat is an optional (and powerful) addition that allows you to put your gratitude into action through service. Many participants complete the program first and join a later retreat when timing works better for them."
     },
     {
       question: "Is there a payment plan option?",
-      answer: "Yes, we offer payment plans for all packages. You can split your investment into 2-4 monthly payments with no additional fees. Select your preferred option during checkout."
+      answer: "Yes! We offer payment plans for The 45 Day Awakening and the Bundle packages. You can split your investment into 2-4 monthly payments with no additional fees. Select your preferred option during checkout."
     }
   ]
 
   return (
     <section ref={ref} className="relative py-24 lg:py-32 bg-gradient-to-b from-black to-[#050505] overflow-hidden">
       <div className="relative z-10 container mx-auto px-6">
-        <SectionHeader
-          label="Questions"
-          labelVariant="teal"
-          title="Frequently Asked Questions"
-          subtitle="Have more questions? Reach out to us at hello@gynergy.com"
-        />
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-[#FFD700] text-sm font-medium tracking-wider uppercase font-oswald">
+            QUESTIONS
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-4 mb-6 font-bebas">
+            FREQUENTLY ASKED QUESTIONS
+          </h2>
+          <p className="text-white/60 text-lg max-w-2xl mx-auto font-inter">
+            Have more questions? Reach out to us at hello@gynergy.com
+          </p>
+        </motion.div>
 
         {/* FAQ accordion */}
-        <div className="mt-16 max-w-3xl mx-auto space-y-4">
+        <div className="max-w-3xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
@@ -69,18 +87,18 @@ export function DateZeroFAQ() {
                 className="w-full text-left"
               >
                 <div
-                  className={`bg-[#1A1A1A] border rounded-xl p-5 transition-all ${
+                  className={`bg-[#1A1A1A] border p-5 transition-all ${
                     openIndex === index
-                      ? 'border-[#AFECDB]/30'
+                      ? 'border-[#FFD700]/30'
                       : 'border-[#2E2E2E] hover:border-white/20'
                   }`}
                 >
                   <div className="flex items-center justify-between gap-4">
-                    <h3 className="text-white font-semibold pr-4">{faq.question}</h3>
+                    <h3 className="text-white font-semibold pr-4 font-oswald">{faq.question}</h3>
                     <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all ${
+                      className={`w-8 h-8 flex items-center justify-center flex-shrink-0 transition-all ${
                         openIndex === index
-                          ? 'bg-[#AFECDB] text-black rotate-45'
+                          ? 'bg-[#FFD700] text-black rotate-45'
                           : 'bg-[#2E2E2E] text-white'
                       }`}
                     >
@@ -99,7 +117,7 @@ export function DateZeroFAQ() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className="text-white/60 mt-4 leading-relaxed text-sm">
+                    <p className="text-white/60 mt-4 leading-relaxed text-sm font-inter">
                       {faq.answer}
                     </p>
                   </motion.div>
@@ -116,10 +134,10 @@ export function DateZeroFAQ() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mt-12 text-center"
         >
-          <p className="text-white/60 mb-4">Still have questions?</p>
+          <p className="text-white/60 mb-4 font-inter">Still have questions?</p>
           <a
             href="mailto:hello@gynergy.com"
-            className="inline-flex items-center gap-2 text-[#AFECDB] font-medium hover:underline"
+            className="inline-flex items-center gap-2 text-[#FFD700] font-medium hover:underline font-oswald"
           >
             <span>Contact us at hello@gynergy.com</span>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
