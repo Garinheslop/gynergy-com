@@ -375,10 +375,10 @@ function FitFeminineAbout() {
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="relative aspect-[3/4] max-w-md mx-auto"
+            className="relative w-full max-w-md mx-auto"
           >
             <div className="absolute -inset-4 bg-gradient-to-br from-rose-500/20 via-transparent to-fuchsia-500/20 blur-xl" />
-            <div className="relative overflow-hidden border border-white/10 h-full">
+            <div className="relative aspect-[3/4] overflow-hidden border border-white/10">
               <Image
                 src="/founders/YESI.JPG"
                 alt="Yesi - Co-Founder of GYNERGY and Fit & Feminine Guide"
