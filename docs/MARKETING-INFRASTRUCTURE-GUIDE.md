@@ -68,6 +68,12 @@ The website's `/api/ghl/contact` endpoint:
 5. Creates or updates contact in GHL
 6. Returns success/failure to the form
 
+**Smart Upsert Behavior**: If GHL returns a 400/409 error (contact already exists), the API:
+1. Searches for the existing contact by email
+2. Merges new tags with existing tags (no duplicates)
+3. Updates the contact with combined tags
+4. This ensures returning visitors get NEW tags added without losing previous tags
+
 **Code Location**: [app/api/ghl/contact/route.ts](../app/api/ghl/contact/route.ts)
 
 ---
@@ -96,8 +102,16 @@ Tags trigger workflows in GHL. Here's what gets applied:
 |-------|--------------|
 | One-time purchase | `stripe-customer`, `purchase-completed`, `gynergy-com`, `product-${slug}` |
 | Subscription created | `stripe-customer`, `active-subscriber`, `gynergy-ai-member`, `${tier}-member`, `billing-${interval}ly`, `gynergy-com` |
+| Subscription updated | Depends on state (see below) |
 | Subscription cancelled | `subscription-canceled`, `churned-subscriber`, `win-back-candidate` |
 | Payment failed | `payment-failed`, `payment-attempt-${count}`, `payment-warning` OR `payment-at-risk` |
+| Payment succeeded | `payment-successful`, `active-subscriber`, + `subscription-renewed` (if renewal) or `payment-recovered` (if recovery) |
+
+**Subscription Updated Tags** (based on subscription state):
+- If `cancel_at_period_end` is true: `cancellation-scheduled`, `at-risk-subscriber`, `save-opportunity`
+- If status is `active`: `active-subscriber`
+- If status is `past_due`: `past-due-subscriber`, `payment-warning`
+- If status is `unpaid`: `unpaid-subscriber`, `payment-at-risk`
 
 **Note**: `payment-warning` is applied for attempts 1-2, `payment-at-risk` for attempts 3+.
 
@@ -122,8 +136,13 @@ We track specific conversion events in GA4:
 | `speaking_inquiry` | high_value_lead | Speaking request | - |
 | `date_zero_inquiry` | high_value_lead | Date Zero interest | $1,497 |
 | `service_retreat_inquiry` | high_value_lead | Service retreat interest | $1,497 |
+| `add_to_cart` | ecommerce | Product added to cart | [product price] |
 | `begin_checkout` | ecommerce | Checkout started | [cart value] |
 | `purchase` | ecommerce | Payment completed | [transaction value] |
+| `aria_chat_opened` | engagement | ARIA chat widget opened | - |
+| `aria_chat_message` | engagement | Message sent in ARIA chat | - |
+| `video_play` | engagement | Video playback started | - |
+| `cta_click` | engagement | Call-to-action clicked | - |
 
 **Code Location**: [components/analytics/google-analytics.tsx](../components/analytics/google-analytics.tsx)
 
@@ -278,6 +297,44 @@ STRIPE_WEBHOOK_SECRET=whsec_xxxxx
 | `/api/ghl/contact` | POST | Create/update contact in GHL |
 | `/api/stripe/webhook` | POST | Handle Stripe payment events |
 | `/api/stripe/checkout` | POST | Create Stripe checkout session |
+
+### API Request/Response Examples
+
+**POST /api/ghl/contact** (Form submission to GHL)
+
+Request body:
+```json
+{
+  "email": "john@example.com",
+  "name": "John Doe",
+  "tags": ["newsletter", "gynergy-com", "website-signup"],
+  "source": "gynergy.com",
+  "customFields": {
+    "utm_source": "facebook",
+    "utm_campaign": "l5l-launch-jan2025",
+    "landing_page": "/level-5-life",
+    "first_touch": "2025-01-15T10:30:00Z"
+  }
+}
+```
+
+Success response (200):
+```json
+{
+  "success": true,
+  "contact": {
+    "id": "abc123...",
+    "email": "john@example.com"
+  }
+}
+```
+
+Error response (500):
+```json
+{
+  "error": "Failed to create contact"
+}
+```
 
 ### Key Files
 
