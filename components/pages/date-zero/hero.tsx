@@ -8,11 +8,11 @@ export function DateZeroHero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FFD700]/5 via-black to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#AFECDB]/5 via-black to-black" />
         <div
           className="absolute inset-0 opacity-10"
           style={{
-            backgroundImage: `radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%)`
+            backgroundImage: `radial-gradient(circle at 50% 50%, rgba(175, 236, 219, 0.1) 0%, transparent 50%)`
           }}
         />
       </div>
@@ -24,7 +24,7 @@ export function DateZeroHero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-block px-4 py-2 text-xs font-medium tracking-wider uppercase bg-[#FFD700]/10 text-[#FFD700] border border-[#FFD700]/20 mb-8"
+            className="inline-block px-4 py-2 text-xs font-medium tracking-wider uppercase bg-[#AFECDB]/10 text-[#AFECDB] border border-[#AFECDB]/20 mb-8"
           >
             45-Day Personal Transformation
           </motion.span>
@@ -34,10 +34,10 @@ export function DateZeroHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tight font-bebas leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tight font-display leading-tight"
           >
             THE 45 DAY{" "}
-            <span className="text-[#FFD700]">AWAKENING</span>
+            <span className="text-[#AFECDB]">AWAKENING</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -45,7 +45,7 @@ export function DateZeroHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-xl md:text-2xl text-white/70 mb-4 leading-relaxed max-w-2xl mx-auto font-inter"
+            className="text-xl md:text-2xl text-white/70 mb-4 leading-relaxed max-w-2xl mx-auto font-body"
           >
             A transformational journey through gratitude that will fundamentally
             change how you see yourself, your relationships, and your purpose.
@@ -55,7 +55,7 @@ export function DateZeroHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.6 }}
-            className="text-lg text-[#AFECDB] mb-8 font-oswald"
+            className="text-lg text-[#AFECDB] mb-8 font-heading"
           >
             Featuring the Date Zero Journal - Your Daily Companion for Transformation
           </motion.p>
@@ -83,7 +83,7 @@ export function DateZeroHero() {
             className="flex flex-wrap justify-center gap-8 text-white/50 text-sm"
           >
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-[#FFD700]" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-[#AFECDB]" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
               </svg>
               <span>45 Days of Guided Transformation</span>
@@ -95,7 +95,7 @@ export function DateZeroHero() {
               <span>Gratitude-Centered Approach</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-[#FFD700]" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-[#AFECDB]" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
               </svg>
               <span>Service Retreat Included</span>
@@ -116,7 +116,7 @@ export function DateZeroHero() {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="w-6 h-10 border-2 border-white/20 flex items-start justify-center p-2"
         >
-          <div className="w-1 h-2 bg-[#FFD700]" />
+          <div className="w-1 h-2 bg-[#AFECDB]" />
         </motion.div>
       </motion.div>
     </section>

@@ -36,7 +36,7 @@ export function PodcastPlatforms() {
       description: "Subscribe in your favorite podcast app",
       icon: "📡",
       href: "https://feeds.buzzsprout.com/2506068.rss",
-      color: "#F8F812"
+      color: "#AFECDB"
     }
   ]
 
@@ -45,7 +45,7 @@ export function PodcastPlatforms() {
       <div className="relative z-10 container mx-auto px-6">
         <SectionHeader
           label="Listen Anywhere"
-          labelVariant="gold"
+          labelVariant="teal"
           title="Subscribe on Your Favorite Platform"
           subtitle="Never miss an episode. Follow us wherever you listen to podcasts."
         />
@@ -77,13 +77,13 @@ export function PodcastPlatforms() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[#F8F812] transition-colors">
+                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[#AFECDB] transition-colors">
                   {platform.name}
                 </h3>
                 <p className="text-white/50 text-sm">{platform.description}</p>
 
                 {/* Arrow */}
-                <div className="mt-4 flex items-center justify-center text-[#F8F812] opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="mt-4 flex items-center justify-center text-[#AFECDB] opacity-0 group-hover:opacity-100 transition-opacity">
                   <span className="text-sm">Listen Now</span>
                   <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -94,39 +94,34 @@ export function PodcastPlatforms() {
           ))}
         </div>
 
-        {/* Embedded player preview */}
+        {/* Embedded Buzzsprout player */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-20"
         >
-          <h3 className="text-xl font-bold text-white text-center mb-8 font-inter">
-            Preview Episode
+          <h3 className="text-xl font-bold text-white text-center mb-8 font-body">
+            Listen to the Latest
           </h3>
           <div className="max-w-3xl mx-auto">
-            {/* Buzzsprout embed placeholder */}
-            <div className="bg-[#1A1A1A] rounded-xl border border-[#2E2E2E] p-8">
-              <div className="aspect-[3/1] bg-gradient-to-br from-[#0D0D0D] to-black rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#F8F812]/20 border-2 border-[#F8F812] flex items-center justify-center">
-                    <svg
-                      className="w-6 h-6 text-[#F8F812] ml-0.5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                  <p className="text-white/60 text-sm">
-                    Buzzsprout player will be embedded here
-                  </p>
-                  <p className="text-white/40 text-xs mt-1">
-                    ID: 2506068
-                  </p>
-                </div>
-              </div>
+            {/* Buzzsprout embed */}
+            <div className="bg-[#1A1A1A] rounded-xl border border-[#2E2E2E] p-4 overflow-hidden">
+              <iframe
+                src="https://www.buzzsprout.com/2506068?client_source=large_player&iframe=true&referrer=https://gynergy.com"
+                loading="lazy"
+                width="100%"
+                height="375"
+                frameBorder="0"
+                scrolling="no"
+                title="The GYNERGY Effect Podcast"
+                className="rounded-lg"
+                style={{ backgroundColor: "#0D0D0D" }}
+              />
             </div>
+            <p className="text-center text-white/40 text-sm mt-4 font-body">
+              Or subscribe using the links above to never miss an episode
+            </p>
           </div>
         </motion.div>
       </div>

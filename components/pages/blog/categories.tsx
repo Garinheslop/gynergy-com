@@ -21,7 +21,7 @@ export function BlogCategories() {
         >
           <Link
             href="/blog"
-            className="px-4 py-2 rounded-full text-sm font-medium bg-[#F8F812] text-black hover:bg-[#F8F812]/90 transition-colors"
+            className="px-4 py-2 rounded-full text-sm font-medium bg-[#AFECDB] text-black hover:bg-[#AFECDB]/90 transition-colors"
           >
             All Posts
           </Link>
@@ -29,7 +29,7 @@ export function BlogCategories() {
             <Link
               key={category.id}
               href={`/blog/category/${category.id}`}
-              className="group px-4 py-2 rounded-full text-sm font-medium bg-[#1A1A1A] text-white/70 border border-[#2E2E2E] hover:border-[#F8F812]/30 hover:text-white transition-all flex items-center gap-2"
+              className="group px-4 py-2 rounded-full text-sm font-medium bg-[#1A1A1A] text-white/70 border border-[#2E2E2E] hover:border-[#AFECDB]/30 hover:text-white transition-all flex items-center gap-2"
             >
               <span>{category.icon}</span>
               <span>{category.label}</span>

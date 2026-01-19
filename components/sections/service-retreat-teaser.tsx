@@ -83,12 +83,12 @@ export function ServiceRetreatTeaser() {
 
   return (
     <section ref={ref} className="relative py-24 lg:py-32 bg-black overflow-hidden">
-      {/* Background pattern - gold grid */}
+      {/* Background pattern - teal grid */}
       <div className="absolute inset-0 opacity-5">
         <div
           className="h-full w-full"
           style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255, 215, 0, 0.3) 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(175, 236, 219, 0.3) 1px, transparent 0)`,
             backgroundSize: '40px 40px'
           }}
         />
@@ -97,7 +97,7 @@ export function ServiceRetreatTeaser() {
       <div className="relative z-10 container mx-auto px-6">
         <SectionHeader
           label="Service & Transformation"
-          labelVariant="gold"
+          labelVariant="teal"
           title="Ensenada Service Retreat"
           subtitle="Master the self to serve the world. This isn't a luxury vacation—it's a life-changing experience where you'll build homes for families in need while discovering your own capacity for transformation."
         />
@@ -122,19 +122,19 @@ export function ServiceRetreatTeaser() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
               {/* Location badge */}
-              <div className="absolute top-4 left-4 bg-[#FFD700]/20 border border-[#FFD700]/30 px-4 py-2">
-                <p className="text-[#FFD700] text-xs font-oswald uppercase tracking-wider">Ensenada, Mexico</p>
+              <div className="absolute top-4 left-4 bg-[#AFECDB]/20 border border-[#AFECDB]/30 px-4 py-2">
+                <p className="text-[#AFECDB] text-xs font-heading uppercase tracking-wider">Ensenada, Mexico</p>
               </div>
 
               {/* Impact stat */}
               <div className="absolute bottom-4 left-4 bg-[#1A1A1A]/90 border border-[#2E2E2E] px-4 py-3">
-                <p className="text-[#AFECDB] font-bebas text-2xl">Service</p>
-                <p className="text-white/50 text-xs font-inter">Build Homes For Families</p>
+                <p className="text-[#AFECDB] font-display text-2xl">Service</p>
+                <p className="text-white/50 text-xs font-body">Build Homes For Families</p>
               </div>
             </div>
 
             {/* Decorative element */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-[#FFD700]/20 -z-10" />
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-[#AFECDB]/20 -z-10" />
           </motion.div>
 
           {/* Content */}
@@ -146,20 +146,20 @@ export function ServiceRetreatTeaser() {
             {/* Pricing options */}
             <div className="flex flex-wrap gap-4 mb-8">
               <div className="bg-[#1A1A1A] border border-[#2E2E2E] px-6 py-4 flex-1 min-w-[200px]">
-                <p className="text-white/40 text-xs font-inter uppercase tracking-wider mb-1">Retreat Only</p>
-                <p className="text-[#AFECDB] font-bebas text-3xl">$1,497</p>
+                <p className="text-white/40 text-xs font-body uppercase tracking-wider mb-1">Retreat Only</p>
+                <p className="text-[#AFECDB] font-display text-3xl">$1,497</p>
               </div>
-              <div className="bg-gradient-to-br from-[#FFD700]/10 to-[#1A1A1A] border border-[#FFD700]/30 px-6 py-4 flex-1 min-w-[200px] relative">
-                <div className="absolute -top-3 right-4 bg-[#FFD700] text-black px-3 py-1 text-xs font-oswald font-bold uppercase tracking-wider">
+              <div className="bg-gradient-to-br from-[#AFECDB]/10 to-[#1A1A1A] border border-[#AFECDB]/30 px-6 py-4 flex-1 min-w-[200px] relative">
+                <div className="absolute -top-3 right-4 bg-[#AFECDB] text-black px-3 py-1 text-xs font-heading font-bold uppercase tracking-wider">
                   SAVE $500
                 </div>
-                <p className="text-white/40 text-xs font-inter uppercase tracking-wider mb-1">Bundle: Retreat + 45 Day Awakening</p>
-                <p className="text-[#FFD700] font-bebas text-3xl">$2,497</p>
+                <p className="text-white/40 text-xs font-body uppercase tracking-wider mb-1">Bundle: Retreat + 45 Day Awakening</p>
+                <p className="text-[#AFECDB] font-display text-3xl">$2,497</p>
               </div>
             </div>
 
             {/* Description */}
-            <p className="text-white/60 font-inter leading-relaxed mb-8">
+            <p className="text-white/60 font-body leading-relaxed mb-8">
               Just a short drive from San Diego, you'll spend transformative days on the beach,
               building a home for a family who needs it, serving at local orphanages, and
               experiencing the "Break Free" teachings that will shift your perspective forever.
@@ -175,14 +175,14 @@ export function ServiceRetreatTeaser() {
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
                   className="flex items-start gap-3"
                 >
-                  <div className="w-8 h-8 bg-[#FFD700]/10 border border-[#FFD700]/20 flex items-center justify-center flex-shrink-0 text-[#FFD700]">
+                  <div className="w-8 h-8 bg-[#AFECDB]/10 border border-[#AFECDB]/20 flex items-center justify-center flex-shrink-0 text-[#AFECDB]">
                     {item.icon}
                   </div>
                   <div>
-                    <p className="text-white text-sm font-oswald font-semibold uppercase tracking-wide">
+                    <p className="text-white text-sm font-heading font-semibold uppercase tracking-wide">
                       {item.title}
                     </p>
-                    <p className="text-white/40 text-xs font-inter">
+                    <p className="text-white/40 text-xs font-body">
                       {item.description}
                     </p>
                   </div>
@@ -209,11 +209,11 @@ export function ServiceRetreatTeaser() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-16 text-center max-w-2xl mx-auto"
         >
-          <div className="w-12 h-px bg-[#FFD700]/30 mx-auto mb-6" />
-          <p className="text-white/50 text-lg font-inter italic">
+          <div className="w-12 h-px bg-[#AFECDB]/30 mx-auto mb-6" />
+          <p className="text-white/50 text-lg font-body italic">
             "The moment you hand the keys to a family who never thought they'd have a home—that's when everything changes."
           </p>
-          <p className="text-[#FFD700] text-sm font-oswald mt-4 uppercase tracking-wider">
+          <p className="text-[#AFECDB] text-sm font-heading mt-4 uppercase tracking-wider">
             — Garin Heslop, Founder
           </p>
         </motion.div>
@@ -226,8 +226,8 @@ export function ServiceRetreatTeaser() {
           className="mt-12 flex items-center justify-center gap-3"
         >
           <div className="w-2 h-2 bg-[#FF4444] animate-pulse" />
-          <span className="text-white/60 text-sm font-inter">
-            Limited to <span className="text-white font-semibold">12 participants</span> per retreat
+          <span className="text-white/60 text-sm font-body">
+            Limited to <span className="text-white font-semibold">35 participants</span> per retreat
           </span>
         </motion.div>
       </div>

@@ -5,6 +5,8 @@ import { useInView } from "framer-motion"
 import { useRef, useState } from "react"
 import { SectionHeader } from "@/components/ui/section-label"
 import { Button } from "@/components/ui/button"
+import { getAttributionData } from "@/lib/utm-tracking"
+import { trackConversion } from "@/components/analytics/google-analytics"
 
 // SVG Icons
 const EmailIcon = () => (
@@ -55,18 +57,29 @@ export function ContactSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState("")
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError("")
 
     const formData = new FormData(e.currentTarget)
+    const subject = formData.get("subject") as string
+
+    // Get UTM attribution data
+    const attribution = getAttributionData()
+
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
-      subject: formData.get("subject"),
-      message: formData.get("message"),
-      source: "gynergy-com-contact"
+      tags: ["contact-form", "gynergy-com", `inquiry-${subject}`],
+      source: "gynergy.com/contact",
+      customFields: {
+        ...attribution,
+        contact_subject: subject,
+        contact_message: formData.get("message") as string,
+      }
     }
 
     try {
@@ -76,11 +89,16 @@ export function ContactSection() {
         body: JSON.stringify(data)
       })
 
-      if (response.ok) {
-        setIsSubmitted(true)
+      if (!response.ok) {
+        throw new Error("Failed to send message")
       }
-    } catch (error) {
-      console.error("Contact form error:", error)
+
+      // Track conversion in GA
+      trackConversion.contactFormSubmit()
+
+      setIsSubmitted(true)
+    } catch {
+      setError("Something went wrong. Please try again or email us directly.")
     } finally {
       setIsSubmitting(false)
     }
@@ -120,8 +138,8 @@ export function ContactSection() {
       <div
         className="absolute inset-0 opacity-5"
         style={{
-          backgroundImage: `linear-gradient(rgba(255, 215, 0, 0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(255, 215, 0, 0.1) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(175, 236, 219, 0.1) 1px, transparent 1px),
+                           linear-gradient(90deg, rgba(175, 236, 219, 0.1) 1px, transparent 1px)`,
           backgroundSize: '60px 60px'
         }}
       />
@@ -129,7 +147,7 @@ export function ContactSection() {
       <div className="relative z-10 container mx-auto px-6">
         <SectionHeader
           label="Get in Touch"
-          labelVariant="gold"
+          labelVariant="teal"
           title="Let's Start a Conversation"
           subtitle="Have a question about our programs? Ready to take the next step? We'd love to hear from you."
         />
@@ -153,8 +171,8 @@ export function ContactSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="font-bebas text-3xl text-white mb-2 tracking-wide">MESSAGE SENT!</h3>
-                <p className="text-white/60 font-inter">
+                <h3 className="font-display text-3xl text-white mb-2 tracking-wide">MESSAGE SENT!</h3>
+                <p className="text-white/60 font-body">
                   Thank you for reaching out. We'll get back to you within 24-48 hours.
                 </p>
               </motion.div>
@@ -162,7 +180,7 @@ export function ContactSection() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-white/70 text-sm mb-2 font-oswald uppercase tracking-wide">
+                    <label htmlFor="name" className="block text-white/70 text-sm mb-2 font-heading uppercase tracking-wide">
                       Your Name
                     </label>
                     <input
@@ -170,12 +188,12 @@ export function ContactSection() {
                       id="name"
                       name="name"
                       required
-                      className="w-full px-4 py-3 bg-[#1A1A1A] border border-[#2E2E2E] text-white font-inter placeholder:text-white/30 focus:outline-none focus:border-[#FFD700]/50 transition-colors"
+                      className="w-full px-4 py-3 bg-[#1A1A1A] border border-[#2E2E2E] text-white font-body placeholder:text-white/30 focus:outline-none focus:border-[#AFECDB]/50 transition-colors"
                       placeholder="John Doe"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-white/70 text-sm mb-2 font-oswald uppercase tracking-wide">
+                    <label htmlFor="email" className="block text-white/70 text-sm mb-2 font-heading uppercase tracking-wide">
                       Email Address
                     </label>
                     <input
@@ -183,21 +201,21 @@ export function ContactSection() {
                       id="email"
                       name="email"
                       required
-                      className="w-full px-4 py-3 bg-[#1A1A1A] border border-[#2E2E2E] text-white font-inter placeholder:text-white/30 focus:outline-none focus:border-[#FFD700]/50 transition-colors"
+                      className="w-full px-4 py-3 bg-[#1A1A1A] border border-[#2E2E2E] text-white font-body placeholder:text-white/30 focus:outline-none focus:border-[#AFECDB]/50 transition-colors"
                       placeholder="john@example.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-white/70 text-sm mb-2 font-oswald uppercase tracking-wide">
+                  <label htmlFor="subject" className="block text-white/70 text-sm mb-2 font-heading uppercase tracking-wide">
                     Subject
                   </label>
                   <select
                     id="subject"
                     name="subject"
                     required
-                    className="w-full px-4 py-3 bg-[#1A1A1A] border border-[#2E2E2E] text-white font-inter focus:outline-none focus:border-[#FFD700]/50 transition-colors"
+                    className="w-full px-4 py-3 bg-[#1A1A1A] border border-[#2E2E2E] text-white font-body focus:outline-none focus:border-[#AFECDB]/50 transition-colors"
                   >
                     <option value="">Select a topic...</option>
                     <option value="level-5-life">Level 5 Life Mastermind</option>
@@ -211,7 +229,7 @@ export function ContactSection() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-white/70 text-sm mb-2 font-oswald uppercase tracking-wide">
+                  <label htmlFor="message" className="block text-white/70 text-sm mb-2 font-heading uppercase tracking-wide">
                     Your Message
                   </label>
                   <textarea
@@ -219,7 +237,7 @@ export function ContactSection() {
                     name="message"
                     required
                     rows={5}
-                    className="w-full px-4 py-3 bg-[#1A1A1A] border border-[#2E2E2E] text-white font-inter placeholder:text-white/30 focus:outline-none focus:border-[#FFD700]/50 transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-[#1A1A1A] border border-[#2E2E2E] text-white font-body placeholder:text-white/30 focus:outline-none focus:border-[#AFECDB]/50 transition-colors resize-none"
                     placeholder="Tell us about your goals and how we can help..."
                   />
                 </div>
@@ -232,6 +250,12 @@ export function ContactSection() {
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
+
+                {error && (
+                  <p className="text-red-400 text-sm text-center font-body">
+                    {error}
+                  </p>
+                )}
               </form>
             )}
           </motion.div>
@@ -255,26 +279,26 @@ export function ContactSection() {
                   {info.href ? (
                     <a
                       href={info.href}
-                      className="flex items-center gap-4 p-4 bg-[#1A1A1A] border border-[#2E2E2E] hover:border-[#FFD700]/30 transition-all group"
+                      className="flex items-center gap-4 p-4 bg-[#1A1A1A] border border-[#2E2E2E] hover:border-[#AFECDB]/30 transition-all group"
                     >
-                      <div className="w-12 h-12 bg-[#FFD700]/10 flex items-center justify-center text-[#FFD700] group-hover:bg-[#FFD700]/20 transition-colors">
+                      <div className="w-12 h-12 bg-[#AFECDB]/10 flex items-center justify-center text-[#AFECDB] group-hover:bg-[#AFECDB]/20 transition-colors">
                         {info.icon}
                       </div>
                       <div>
-                        <p className="text-white/50 text-xs font-oswald uppercase tracking-wider">{info.label}</p>
-                        <p className="text-white font-inter font-medium group-hover:text-[#FFD700] transition-colors">
+                        <p className="text-white/50 text-xs font-heading uppercase tracking-wider">{info.label}</p>
+                        <p className="text-white font-body font-medium group-hover:text-[#AFECDB] transition-colors">
                           {info.value}
                         </p>
                       </div>
                     </a>
                   ) : (
                     <div className="flex items-center gap-4 p-4 bg-[#1A1A1A] border border-[#2E2E2E]">
-                      <div className="w-12 h-12 bg-[#FFD700]/10 flex items-center justify-center text-[#FFD700]">
+                      <div className="w-12 h-12 bg-[#AFECDB]/10 flex items-center justify-center text-[#AFECDB]">
                         {info.icon}
                       </div>
                       <div>
-                        <p className="text-white/50 text-xs font-oswald uppercase tracking-wider">{info.label}</p>
-                        <p className="text-white font-inter font-medium">{info.value}</p>
+                        <p className="text-white/50 text-xs font-heading uppercase tracking-wider">{info.label}</p>
+                        <p className="text-white font-body font-medium">{info.value}</p>
                       </div>
                     </div>
                   )}
@@ -289,7 +313,7 @@ export function ContactSection() {
               transition={{ duration: 0.5, delay: 0.7 }}
               className="pt-6 border-t border-[#2E2E2E]"
             >
-              <p className="text-white/50 text-sm mb-4 font-oswald uppercase tracking-wide">Follow us</p>
+              <p className="text-white/50 text-sm mb-4 font-heading uppercase tracking-wide">Follow us</p>
               <div className="flex gap-3">
                 {socialLinks.map((social) => (
                   <a
@@ -297,7 +321,7 @@ export function ContactSection() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-[#1A1A1A] border border-[#2E2E2E] flex items-center justify-center text-white/60 hover:border-[#FFD700]/30 hover:bg-[#FFD700]/10 hover:text-[#FFD700] transition-all"
+                    className="w-10 h-10 bg-[#1A1A1A] border border-[#2E2E2E] flex items-center justify-center text-white/60 hover:border-[#AFECDB]/30 hover:bg-[#AFECDB]/10 hover:text-[#AFECDB] transition-all"
                     title={social.name}
                   >
                     {social.icon}
@@ -315,7 +339,7 @@ export function ContactSection() {
             >
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-[#AFECDB] animate-pulse" />
-                <p className="text-[#AFECDB] text-sm font-inter">
+                <p className="text-[#AFECDB] text-sm font-body">
                   We typically respond within 24-48 hours
                 </p>
               </div>

@@ -114,13 +114,13 @@ export function DateZeroProgram() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-[#FFD700] text-sm font-medium tracking-wider uppercase font-oswald">
+          <span className="text-[#AFECDB] text-sm font-medium tracking-wider uppercase font-heading">
             THE JOURNEY
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-4 mb-6 font-bebas">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-4 mb-6 font-display">
             45 DAYS THAT WILL CHANGE YOUR LIFE
           </h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto font-inter">
+          <p className="text-white/60 text-lg max-w-2xl mx-auto font-body">
             This isn't a quick fix. It's a fundamental rewiring of how you experience
             life—built on the unshakeable foundation of gratitude.
           </p>
@@ -134,20 +134,20 @@ export function DateZeroProgram() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gradient-to-b from-[#1A1A1A] to-[#0A0A0A] border border-[#2E2E2E] p-8 hover:border-[#FFD700]/30 transition-colors"
+              className="bg-gradient-to-b from-[#1A1A1A] to-[#0A0A0A] border border-[#2E2E2E] p-8 hover:border-[#AFECDB]/30 transition-colors"
             >
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-[#FFD700] text-sm font-medium tracking-wider font-oswald">
+                <span className="text-[#AFECDB] text-sm font-medium tracking-wider font-heading">
                   {phase.phase}
                 </span>
-                <span className="px-2 py-1 bg-[#FFD700]/10 text-[#FFD700] text-xs font-oswald">
+                <span className="px-2 py-1 bg-[#AFECDB]/10 text-[#AFECDB] text-xs font-heading">
                   {phase.focus}
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4 font-oswald">
+              <h3 className="text-xl font-bold text-white mb-4 font-heading">
                 {phase.title}
               </h3>
-              <p className="text-white/60 mb-6 font-inter text-sm">
+              <p className="text-white/60 mb-6 font-body text-sm">
                 {phase.description}
               </p>
               <ul className="space-y-2">
@@ -170,7 +170,7 @@ export function DateZeroProgram() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-12 font-bebas">
+          <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-12 font-display">
             EVERYTHING YOU NEED TO TRANSFORM
           </h3>
 
@@ -183,12 +183,12 @@ export function DateZeroProgram() {
                 transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
                 className="flex items-start gap-4 p-5 bg-[#1A1A1A] border border-[#2E2E2E]"
               >
-                <div className="w-12 h-12 bg-[#FFD700]/10 flex items-center justify-center flex-shrink-0 text-[#FFD700]">
+                <div className="w-12 h-12 bg-[#AFECDB]/10 flex items-center justify-center flex-shrink-0 text-[#AFECDB]">
                   {item.icon}
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-1 font-oswald">{item.title}</h4>
-                  <p className="text-white/50 text-sm font-inter">{item.description}</p>
+                  <h4 className="text-white font-semibold mb-1 font-heading">{item.title}</h4>
+                  <p className="text-white/50 text-sm font-body">{item.description}</p>
                 </div>
               </motion.div>
             ))}

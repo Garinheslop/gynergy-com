@@ -62,7 +62,7 @@ export function CoachingApproach() {
       <div className="relative z-10 container mx-auto px-6">
         <SectionHeader
           label="The Approach"
-          labelVariant="gold"
+          labelVariant="teal"
           title="Holistic Transformation"
           subtitle="We don't just fix one area of your life. We transform everything simultaneously through the Level 5 Life framework."
         />
@@ -74,12 +74,12 @@ export function CoachingApproach() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-gradient-to-b from-[#1A1A1A] to-[#0D0D0D] rounded-2xl border border-[#2E2E2E] p-6 hover:border-[#F8F812]/30 transition-all text-center"
+              className="group bg-gradient-to-b from-[#1A1A1A] to-[#0D0D0D] rounded-2xl border border-[#2E2E2E] p-6 hover:border-[#AFECDB]/30 transition-all text-center"
             >
-              <div className="w-16 h-16 mx-auto rounded-xl bg-[#F8F812]/10 border border-[#F8F812]/20 flex items-center justify-center text-[#F8F812] mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-16 h-16 mx-auto rounded-xl bg-[#AFECDB]/10 border border-[#AFECDB]/20 flex items-center justify-center text-[#AFECDB] mb-4 group-hover:scale-110 transition-transform">
                 {pillar.icon}
               </div>
-              <h3 className="text-lg font-bold text-white mb-2 font-inter group-hover:text-[#F8F812] transition-colors">
+              <h3 className="text-lg font-bold text-white mb-2 font-body group-hover:text-[#AFECDB] transition-colors">
                 {pillar.title}
               </h3>
               <p className="text-white/60 text-sm leading-relaxed">
@@ -99,7 +99,7 @@ export function CoachingApproach() {
           <blockquote className="text-xl md:text-2xl text-white/80 italic leading-relaxed">
             "Private coaching is for those who want to move faster, go deeper, and create results that others think are impossible."
           </blockquote>
-          <p className="mt-4 text-[#F8F812]">— Garin Heslop</p>
+          <p className="mt-4 text-[#AFECDB]">— Garin Heslop</p>
         </motion.div>
       </div>
     </section>

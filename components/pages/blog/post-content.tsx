@@ -22,21 +22,21 @@ export function BlogPostContent({ post }: Props) {
         // Headers
         if (paragraph.startsWith("# ")) {
           return (
-            <h1 key={index} className="text-3xl font-bold text-white mt-8 mb-4 font-inter">
+            <h1 key={index} className="text-3xl font-bold text-white mt-8 mb-4 font-body">
               {paragraph.replace("# ", "")}
             </h1>
           )
         }
         if (paragraph.startsWith("## ")) {
           return (
-            <h2 key={index} className="text-2xl font-bold text-white mt-8 mb-4 font-inter">
+            <h2 key={index} className="text-2xl font-bold text-white mt-8 mb-4 font-body">
               {paragraph.replace("## ", "")}
             </h2>
           )
         }
         if (paragraph.startsWith("### ")) {
           return (
-            <h3 key={index} className="text-xl font-bold text-white mt-6 mb-3 font-inter">
+            <h3 key={index} className="text-xl font-bold text-white mt-6 mb-3 font-body">
               {paragraph.replace("### ", "")}
             </h3>
           )
@@ -47,7 +47,7 @@ export function BlogPostContent({ post }: Props) {
           return (
             <blockquote
               key={index}
-              className="border-l-4 border-[#F8F812] pl-4 my-6 text-white/80 italic text-lg"
+              className="border-l-4 border-[#AFECDB] pl-4 my-6 text-white/80 italic text-lg"
             >
               {paragraph.replace("> ", "")}
             </blockquote>
@@ -92,7 +92,7 @@ export function BlogPostContent({ post }: Props) {
         // Links handling
         const withLinks = formattedParagraph.replace(
           /\[(.+?)\]\((.+?)\)/g,
-          '<a href="$2" class="text-[#F8F812] hover:text-[#F8F812]/80 underline">$1</a>'
+          '<a href="$2" class="text-[#AFECDB] hover:text-[#AFECDB]/80 underline">$1</a>'
         )
 
         // Regular paragraphs
@@ -129,7 +129,7 @@ export function BlogPostContent({ post }: Props) {
           </div>
 
           {/* Content */}
-          <div className="prose-headings:font-inter prose-a:text-[#F8F812] prose-a:no-underline hover:prose-a:underline">
+          <div className="prose-headings:font-body prose-a:text-[#AFECDB] prose-a:no-underline hover:prose-a:underline">
             {formatContent(post.content)}
           </div>
 
@@ -141,7 +141,7 @@ export function BlogPostContent({ post }: Props) {
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://gynergy.com/blog/${post.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-lg bg-[#1A1A1A] border border-[#2E2E2E] text-white/70 text-sm hover:border-[#F8F812]/30 hover:text-white transition-all"
+                className="px-4 py-2 rounded-lg bg-[#1A1A1A] border border-[#2E2E2E] text-white/70 text-sm hover:border-[#AFECDB]/30 hover:text-white transition-all"
               >
                 Twitter/X
               </a>
@@ -149,13 +149,13 @@ export function BlogPostContent({ post }: Props) {
                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://gynergy.com/blog/${post.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-lg bg-[#1A1A1A] border border-[#2E2E2E] text-white/70 text-sm hover:border-[#F8F812]/30 hover:text-white transition-all"
+                className="px-4 py-2 rounded-lg bg-[#1A1A1A] border border-[#2E2E2E] text-white/70 text-sm hover:border-[#AFECDB]/30 hover:text-white transition-all"
               >
                 LinkedIn
               </a>
               <button
                 onClick={() => navigator.clipboard.writeText(`https://gynergy.com/blog/${post.slug}`)}
-                className="px-4 py-2 rounded-lg bg-[#1A1A1A] border border-[#2E2E2E] text-white/70 text-sm hover:border-[#F8F812]/30 hover:text-white transition-all"
+                className="px-4 py-2 rounded-lg bg-[#1A1A1A] border border-[#2E2E2E] text-white/70 text-sm hover:border-[#AFECDB]/30 hover:text-white transition-all"
               >
                 Copy Link
               </button>

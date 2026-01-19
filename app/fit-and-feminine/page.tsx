@@ -12,6 +12,7 @@ export default function FitAndFemininePage() {
     <>
       <FitFeminineHero />
       <FitFemininePillars />
+      <FitFemininePricing />
       <FitFeminineExpect />
       <FitFeminineAbout />
       <FitFeminineCTA />
@@ -20,7 +21,7 @@ export default function FitAndFemininePage() {
 }
 
 // Waitlist Form Component
-function WaitlistForm({ className }: { className?: string }) {
+function WaitlistForm({ className, variant = "default" }: { className?: string; variant?: "default" | "compact" }) {
   const [email, setEmail] = useState("")
   const [name, setName] = useState("")
   const [step, setStep] = useState<1 | 2 | 3>(1)
@@ -48,11 +49,11 @@ function WaitlistForm({ className }: { className?: string }) {
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-white font-bebas">YOU&apos;RE ON THE LIST!</h3>
-        <p className="text-white/60 mt-2 font-inter">We&apos;ll notify you when doors open in May 2026.</p>
+        <h3 className="text-2xl font-bold text-white font-display">YOU&apos;RE ON THE LIST!</h3>
+        <p className="text-white/60 mt-2 font-body">We&apos;ll notify you when doors open in May 2026.</p>
         <div className="mt-6 p-4 bg-black/50 border border-rose-500/20">
-          <p className="text-rose-400 text-sm font-oswald">FOUNDING MEMBER BENEFITS LOCKED IN:</p>
-          <ul className="text-white/50 text-sm mt-2 space-y-1 font-inter">
+          <p className="text-rose-400 text-sm font-heading">FOUNDING MEMBER BENEFITS LOCKED IN:</p>
+          <ul className="text-white/50 text-sm mt-2 space-y-1 font-body">
             <li>First access when enrollment opens</li>
             <li>Exclusive founding member pricing</li>
             <li>Direct line to Yesi</li>
@@ -65,26 +66,26 @@ function WaitlistForm({ className }: { className?: string }) {
   if (step === 2) {
     return (
       <form onSubmit={handleFullSubmit} className={`space-y-4 ${className}`}>
-        <p className="text-rose-400 text-sm font-oswald text-center">ALMOST THERE!</p>
+        <p className="text-rose-400 text-sm font-heading text-center">ALMOST THERE!</p>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Your first name (optional)"
-          className="w-full h-14 px-4 bg-[#1A1A1A] border border-[#2E2E2E] text-white placeholder-white/40 focus:border-rose-500/50 focus:outline-none font-inter"
+          className="w-full h-14 px-4 bg-[#1A1A1A] border border-[#2E2E2E] text-white placeholder-white/40 focus:border-rose-500/50 focus:outline-none font-body"
         />
         <div className="flex gap-3">
           <button
             type="button"
             onClick={() => setStep(1)}
-            className="flex-1 h-12 border border-[#2E2E2E] text-white/60 hover:text-white hover:border-white/30 transition-colors font-oswald"
+            className="flex-1 h-12 border border-[#2E2E2E] text-white/60 hover:text-white hover:border-white/30 transition-colors font-heading"
           >
             BACK
           </button>
           <button
             type="submit"
             disabled={isSubmitting}
-            className="flex-1 h-12 bg-gradient-to-r from-rose-500 to-fuchsia-500 text-white font-bold font-oswald hover:opacity-90 transition-opacity disabled:opacity-50"
+            className="flex-1 h-12 bg-gradient-to-r from-rose-500 to-fuchsia-500 text-white font-bold font-heading hover:opacity-90 transition-opacity disabled:opacity-50"
           >
             {isSubmitting ? "JOINING..." : "JOIN WAITLIST"}
           </button>
@@ -101,18 +102,18 @@ function WaitlistForm({ className }: { className?: string }) {
         onChange={(e) => setEmail(e.target.value)}
         required
         placeholder="Enter your email"
-        className="w-full h-14 px-4 bg-[#1A1A1A] border border-[#2E2E2E] text-white placeholder-white/40 focus:border-rose-500/50 focus:outline-none text-center font-inter"
+        className="w-full h-14 px-4 bg-[#1A1A1A] border border-[#2E2E2E] text-white placeholder-white/40 focus:border-rose-500/50 focus:outline-none text-center font-body"
       />
       <button
         type="submit"
-        className="w-full h-14 bg-gradient-to-r from-rose-500 to-fuchsia-500 text-white font-bold font-oswald text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+        className={`w-full ${variant === "compact" ? "h-12" : "h-14"} bg-gradient-to-r from-rose-500 to-fuchsia-500 text-white font-bold font-heading text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2`}
       >
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 3L14.5 8.5L20.5 9L16 13.5L17.5 19.5L12 16L6.5 19.5L8 13.5L3.5 9L9.5 8.5L12 3Z"/>
         </svg>
         JOIN THE INTEREST LIST
       </button>
-      <p className="text-white/40 text-xs text-center font-inter">
+      <p className="text-white/40 text-xs text-center font-body">
         Be first when doors open. No spam, ever.
       </p>
     </form>
@@ -135,15 +136,16 @@ function FitFeminineHero() {
           className="space-y-8"
         >
           {/* Badge */}
-          <span className="inline-flex items-center gap-2 px-4 py-2 bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm font-oswald tracking-wider">
+          <span className="inline-flex items-center gap-2 px-4 py-2 bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm font-heading tracking-wider">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="square" strokeLinejoin="miter" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              <path strokeLinecap="square" strokeLinejoin="miter" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path strokeLinecap="square" strokeLinejoin="miter" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
             </svg>
-            LAUNCHING MAY 2026
+            SAN DIEGO FOUNDING COHORT — MAY 2026
           </span>
 
           {/* Main headline */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight font-bebas">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight font-display">
             FIT &{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-fuchsia-400">
               FEMININE
@@ -152,26 +154,38 @@ function FitFeminineHero() {
 
           {/* Subtitle */}
           <div className="space-y-2">
-            <p className="text-lg text-white/70 uppercase tracking-[0.2em] font-oswald">
+            <p className="text-lg text-white/70 uppercase tracking-[0.2em] font-heading">
               The Women&apos;s Transformation Experience
             </p>
-            <p className="text-white/40 font-inter">Led by Yesi</p>
+            <p className="text-white/40 font-body">Led by Yesi • The Female Counterpart to LVL 5 LIFE</p>
           </div>
 
           {/* Description */}
-          <p className="text-lg text-white/60 max-w-2xl mx-auto font-inter">
+          <p className="text-lg text-white/60 max-w-2xl mx-auto font-body">
             Transform your body, master your relationships, and reclaim your feminine power
             alongside women who get it.
           </p>
+
+          {/* Pricing Preview */}
+          <div className="flex flex-wrap justify-center gap-4 pt-4">
+            <div className="px-6 py-3 bg-[#1A1A1A] border border-rose-500/30">
+              <p className="text-rose-400 text-sm font-heading">SIGNATURE</p>
+              <p className="text-white font-bold font-body">$247/mo or $2,247/yr</p>
+            </div>
+            <div className="px-6 py-3 bg-[#1A1A1A] border border-[#2E2E2E] opacity-60">
+              <p className="text-white/50 text-sm font-heading">ELITE</p>
+              <p className="text-white/50 font-body text-sm">Coming 2027</p>
+            </div>
+          </div>
 
           {/* CTA */}
           <div className="pt-4">
             <WaitlistForm className="max-w-md mx-auto" />
           </div>
 
-          {/* Social proof */}
-          <p className="text-sm text-white/40 font-inter">
-            <span className="text-rose-400 font-semibold">Interest list growing</span> — Be first when doors open
+          {/* Founding Member Urgency */}
+          <p className="text-sm text-white/40 font-body">
+            <span className="text-rose-400 font-semibold">Founding Member pricing ends when doors close</span> — Lock in your rate for life
           </p>
         </motion.div>
       </div>
@@ -236,12 +250,12 @@ function FitFemininePillars() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-bebas">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-display">
             THIS ISN&apos;T A WATERED-DOWN
             <br />
             <span className="text-white/40">VERSION OF A MEN&apos;S PROGRAM</span>
           </h2>
-          <p className="text-white/60 mt-6 max-w-2xl mx-auto font-inter">
+          <p className="text-white/60 mt-6 max-w-2xl mx-auto font-body">
             Fit & Feminine is built from the ground up for how women transform—
             honoring your unique path to strength, fulfillment, and power.
           </p>
@@ -259,11 +273,165 @@ function FitFemininePillars() {
               <div className="w-14 h-14 mb-6 bg-gradient-to-br from-rose-500/20 to-fuchsia-500/20 flex items-center justify-center text-rose-400">
                 {pillar.icon}
               </div>
-              <h3 className="text-xl font-bold text-white mb-3 font-oswald">{pillar.title}</h3>
-              <p className="text-white/60 text-sm font-inter">{pillar.description}</p>
+              <h3 className="text-xl font-bold text-white mb-3 font-heading">{pillar.title}</h3>
+              <p className="text-white/60 text-sm font-body">{pillar.description}</p>
             </motion.div>
           ))}
         </div>
+      </div>
+    </section>
+  )
+}
+
+// Pricing Section
+function FitFemininePricing() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
+
+  return (
+    <section ref={ref} className="py-24 lg:py-32 bg-[#050505] border-y border-[#1A1A1A] px-6">
+      <div className="container mx-auto max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <span className="text-rose-400 text-sm font-heading tracking-wider">INVESTMENT</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mt-4 font-display">
+            CHOOSE YOUR PATH
+          </h2>
+          <p className="text-white/60 mt-4 font-body max-w-xl mx-auto">
+            Fit & Feminine Signature launches May 2026 in San Diego. Elite tier coming 2027.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {/* Signature Tier */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="relative bg-gradient-to-b from-[#1A1A1A] to-[#0D0D0D] border border-rose-500/50 ring-1 ring-rose-500/20 p-8"
+          >
+            {/* Badge */}
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-rose-500 to-fuchsia-500 text-white text-xs font-bold font-heading">
+              LAUNCHING MAY 2026
+            </div>
+
+            <div className="text-center mb-8 pt-4">
+              <h3 className="text-2xl font-bold text-white font-display">SIGNATURE</h3>
+              <p className="text-white/50 text-sm mt-2 font-body">San Diego Founding Cohort</p>
+            </div>
+
+            <div className="text-center mb-8">
+              <div className="flex items-baseline justify-center gap-2">
+                <span className="text-4xl font-bold text-white font-display">$247</span>
+                <span className="text-white/50 font-body">/month</span>
+              </div>
+              <p className="text-white/40 text-sm mt-2 font-body">or</p>
+              <div className="flex items-baseline justify-center gap-2 mt-2">
+                <span className="text-2xl font-bold text-rose-400 font-display">$2,247</span>
+                <span className="text-white/50 font-body">/year</span>
+              </div>
+              <p className="text-rose-400 text-sm mt-1 font-body">Save $717 (24%)</p>
+            </div>
+
+            <ul className="space-y-3 mb-8">
+              {[
+                "Weekly coaching calls with Yesi",
+                "Private founding members community",
+                "Fitness + inner work integration",
+                "ARIA AI access included",
+                "Monthly in-person San Diego meetups",
+                "Founding member pricing locked for life",
+              ].map((feature) => (
+                <li key={feature} className="flex items-start gap-3 text-white/70 text-sm">
+                  <svg className="w-4 h-4 text-rose-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                  <span className="font-body">{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <WaitlistForm variant="compact" />
+          </motion.div>
+
+          {/* Elite Tier - Coming Soon */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="relative bg-gradient-to-b from-[#1A1A1A]/50 to-[#0D0D0D]/50 border border-[#2E2E2E] p-8 opacity-75"
+          >
+            {/* Badge */}
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#2E2E2E] text-white/50 text-xs font-bold font-heading">
+              COMING 2027
+            </div>
+
+            <div className="text-center mb-8 pt-4">
+              <h3 className="text-2xl font-bold text-white/60 font-display">ELITE</h3>
+              <p className="text-white/30 text-sm mt-2 font-body">The Women&apos;s Mastermind</p>
+            </div>
+
+            <div className="text-center mb-8">
+              <div className="flex items-baseline justify-center gap-2">
+                <span className="text-4xl font-bold text-white/40 font-display">TBD</span>
+              </div>
+              <p className="text-white/30 text-sm mt-2 font-body">By application only</p>
+            </div>
+
+            <ul className="space-y-3 mb-8">
+              {[
+                "Everything in Signature",
+                "VIP access to Yesi",
+                "Quarterly intensive retreats",
+                "Partner/spouse integration work",
+                "Business & leadership coaching",
+                "Exclusive mastermind network",
+              ].map((feature) => (
+                <li key={feature} className="flex items-start gap-3 text-white/40 text-sm">
+                  <svg className="w-4 h-4 text-white/30 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                  <span className="font-body">{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="text-center">
+              <p className="text-white/40 text-sm font-body">
+                Elite launches once Signature demand is established.
+                <br />
+                <span className="text-rose-400/60">Join the interest list to be notified.</span>
+              </p>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Ecosystem Connection */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-16 text-center"
+        >
+          <div className="inline-block bg-[#1A1A1A] border border-[#2E2E2E] px-8 py-6">
+            <p className="text-white/40 text-sm font-body mb-3">
+              The female counterpart to the men&apos;s transformation
+            </p>
+            <a
+              href="/level-5-life"
+              className="inline-flex items-center gap-2 text-[#AFECDB] hover:text-[#AFECDB]/80 text-sm font-heading transition-colors"
+            >
+              <span>LVL 5 LIFE Men&apos;s Mastermind ($15,000)</span>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="square" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
@@ -275,10 +443,10 @@ function FitFeminineExpect() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   const expectations = [
-    { icon: "users", title: "Intimate Group (15 Women Max)", description: "Small cohorts for deep connection and accountability" },
+    { icon: "users", title: "Founding Member Community", description: "Exclusive access and pricing locked for life" },
     { icon: "calendar", title: "Weekly Coaching with Yesi", description: "Live sessions to guide your transformation" },
     { icon: "dumbbell", title: "Fitness + Inner Work", description: "Physical transformation integrated with mindset" },
-    { icon: "home", title: "Service Retreat Option", description: "Build homes alongside the GYNERGY community" },
+    { icon: "home", title: "Service Retreat Option", description: "Limited to 35 per retreat — build homes in Mexico" },
   ]
 
   const getIcon = (name: string) => {
@@ -313,7 +481,7 @@ function FitFeminineExpect() {
   }
 
   return (
-    <section ref={ref} className="py-24 lg:py-32 bg-[#050505] border-y border-[#1A1A1A] px-6">
+    <section ref={ref} className="py-24 lg:py-32 bg-black px-6">
       <div className="container mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -321,11 +489,10 @@ function FitFeminineExpect() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-rose-400 text-sm font-oswald tracking-wider">WHAT TO EXPECT</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mt-4 font-bebas">
-            DETAILS COMING EARLY 2026
+          <span className="text-rose-400 text-sm font-heading tracking-wider">WHAT TO EXPECT</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mt-4 font-display">
+            THE SIGNATURE EXPERIENCE
           </h2>
-          <p className="text-white/60 mt-4 font-inter">Here&apos;s what we&apos;re building:</p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -340,22 +507,11 @@ function FitFeminineExpect() {
               <div className="w-10 h-10 mb-4 bg-rose-500/10 flex items-center justify-center text-rose-400">
                 {getIcon(item.icon)}
               </div>
-              <h3 className="font-semibold text-white mb-2 font-oswald">{item.title}</h3>
-              <p className="text-sm text-white/60 font-inter">{item.description}</p>
+              <h3 className="font-semibold text-white mb-2 font-heading">{item.title}</h3>
+              <p className="text-sm text-white/60 font-body">{item.description}</p>
             </motion.div>
           ))}
         </div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center mt-10 text-white/40 text-sm font-inter"
-        >
-          Investment and full program details announced early 2026.
-          <br />
-          <span className="text-rose-400">Interest list members receive first access + founding member pricing.</span>
-        </motion.p>
       </div>
     </section>
   )
@@ -367,7 +523,7 @@ function FitFeminineAbout() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-24 lg:py-32 bg-black px-6">
+    <section ref={ref} className="py-24 lg:py-32 bg-[#050505] border-t border-[#1A1A1A] px-6">
       <div className="container mx-auto max-w-5xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Yesi Image */}
@@ -397,18 +553,18 @@ function FitFeminineAbout() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-6"
           >
-            <span className="inline-flex items-center gap-2 px-3 py-1 bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm font-oswald">
+            <span className="inline-flex items-center gap-2 px-3 py-1 bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm font-heading">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
               </svg>
               MEET YOUR GUIDE
             </span>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-white font-bebas">
+            <h2 className="text-3xl md:text-4xl font-bold text-white font-display">
               ABOUT YESI
             </h2>
 
-            <div className="space-y-4 text-white/60 font-inter">
+            <div className="space-y-4 text-white/60 font-body">
               <p>
                 Yesi embodies the integration she teaches. From first-generation engineer to
                 wellness coach, from Goldman Sachs to building homes in Mexico—she&apos;s walked
@@ -428,10 +584,23 @@ function FitFeminineAbout() {
                   <svg className="w-5 h-5 text-rose-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="square" strokeLinejoin="miter" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-white/80 font-inter">{item}</span>
+                  <span className="text-white/80 font-body">{item}</span>
                 </li>
               ))}
             </ul>
+
+            {/* Cross-link to 1-on-1 */}
+            <div className="pt-4">
+              <a
+                href="/one-on-one-coaching"
+                className="inline-flex items-center gap-2 text-rose-400 hover:text-rose-300 text-sm font-heading transition-colors"
+              >
+                <span>Work 1-on-1 with Yesi</span>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="square" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -445,7 +614,7 @@ function FitFeminineCTA() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-24 lg:py-32 bg-gradient-to-b from-[#050505] to-black px-6">
+    <section ref={ref} className="py-24 lg:py-32 bg-gradient-to-b from-black to-[#050505] px-6">
       <div className="container mx-auto max-w-2xl text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -453,11 +622,11 @@ function FitFeminineCTA() {
           transition={{ duration: 0.6 }}
           className="space-y-8"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white font-bebas">
-            BE FIRST WHEN DOORS OPEN
+          <h2 className="text-3xl md:text-4xl font-bold text-white font-display">
+            BECOME A FOUNDING MEMBER
           </h2>
-          <p className="text-white/60 text-lg font-inter">
-            Join the interest list. No obligation. Just priority access.
+          <p className="text-white/60 text-lg font-body">
+            San Diego. May 2026. Founding member pricing locked for life.
           </p>
 
           <WaitlistForm className="max-w-md mx-auto" />
@@ -467,13 +636,13 @@ function FitFeminineCTA() {
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="square" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
               </svg>
-              <span className="font-inter">No Spam Ever</span>
+              <span className="font-body">No Spam Ever</span>
             </div>
             <div className="flex items-center gap-2">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="square" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
               </svg>
-              <span className="font-inter">Your Data Stays Private</span>
+              <span className="font-body">Your Data Stays Private</span>
             </div>
           </div>
         </motion.div>
@@ -486,13 +655,16 @@ function FitFeminineCTA() {
         transition={{ duration: 0.5, delay: 0.4 }}
         className="mt-20 text-center"
       >
-        <p className="text-white/40 mb-6 font-inter">Looking for something else?</p>
+        <p className="text-white/40 mb-6 font-body">Looking for something else?</p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button href="/date-zero" variant="outline">
             The 45 Day Awakening
           </Button>
           <Button href="/level-5-life" variant="outline">
             LVL 5 LIFE (Men&apos;s Program)
+          </Button>
+          <Button href="/one-on-one-coaching" variant="outline">
+            1-on-1 Coaching
           </Button>
         </div>
       </motion.div>

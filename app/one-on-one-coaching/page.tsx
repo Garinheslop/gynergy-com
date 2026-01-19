@@ -7,13 +7,13 @@ import { CoachingTestimonials } from "@/components/pages/coaching/testimonials"
 import { CoachingApplication } from "@/components/pages/coaching/application"
 
 export const metadata: Metadata = {
-  title: "1-on-1 Coaching with Garin | GYNERGY",
+  title: "1-on-1 Coaching with Garin & Yesi | GYNERGY",
   description:
-    "Transform your life with personalized coaching from Garin. Deep, transformational work for those ready to invest in themselves and create lasting change.",
+    "Exclusive private coaching with Garin (Business, Mindset, Purpose) or Yesi (Health, Relationships, Feminine Energy). Deep, transformational work for high-performers ready to create extraordinary results.",
   openGraph: {
-    title: "1-on-1 Coaching with Garin | GYNERGY",
+    title: "1-on-1 Coaching with Garin & Yesi | GYNERGY",
     description:
-      "Personalized coaching for those ready to transform their health, relationships, mindset, and purpose.",
+      "Exclusive private coaching for high-performers. Garin: Business, Mindset, Purpose. Yesi: Health, Relationships, Feminine Energy. Limited spots available.",
     url: "https://gynergy.com/one-on-one-coaching",
     type: "website",
   },

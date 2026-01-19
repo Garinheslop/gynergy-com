@@ -5,6 +5,8 @@ import { useInView } from "framer-motion"
 import { useRef, useState } from "react"
 import { SectionHeader } from "@/components/ui/section-label"
 import { Button } from "@/components/ui/button"
+import { getAttributionData } from "@/lib/utm-tracking"
+import { trackConversion } from "@/components/analytics/google-analytics"
 
 export function L5LApplication() {
   const ref = useRef(null)
@@ -18,16 +20,25 @@ export function L5LApplication() {
     setIsSubmitting(true)
 
     const formData = new FormData(e.currentTarget)
+    const investment = formData.get("investment") as string
+
+    // Get UTM attribution data
+    const attribution = getAttributionData()
+
     const data = {
       firstName: formData.get("firstName"),
       lastName: formData.get("lastName"),
       email: formData.get("email"),
       phone: formData.get("phone"),
-      occupation: formData.get("occupation"),
-      goals: formData.get("goals"),
-      commitment: formData.get("commitment"),
-      investment: formData.get("investment"),
-      source: "level-5-life-application"
+      tags: ["l5l-application", "level-5-life", "high-ticket", "gynergy-com", `investment-${investment}`],
+      source: "gynergy.com/level-5-life",
+      customFields: {
+        ...attribution,
+        occupation: formData.get("occupation") as string,
+        goals: formData.get("goals") as string,
+        commitment_reason: formData.get("commitment") as string,
+        investment_readiness: investment,
+      }
     }
 
     try {
@@ -38,6 +49,9 @@ export function L5LApplication() {
       })
 
       if (response.ok) {
+        // Track conversion in GA - high-value application
+        trackConversion.l5lApplication()
+
         setIsSubmitted(true)
       }
     } catch (error) {

@@ -83,7 +83,7 @@ export function PodcastPreview() {
               initial={{ height: 0 }}
               animate={isInView ? { height } : {}}
               transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="w-1 bg-[#FFD700]"
+              className="w-1 bg-[#AFECDB]"
             />
           ))}
         </div>
@@ -99,7 +99,7 @@ export function PodcastPreview() {
           >
             <SectionHeader
               label="The Podcast"
-              labelVariant="gold"
+              labelVariant="teal"
               title="The GYNERGY Effect"
               subtitle="Weekly conversations on transformation, relationships, and living at Level 5. Listen wherever you get your podcasts."
               align="left"
@@ -116,10 +116,10 @@ export function PodcastPreview() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className="flex items-center gap-2 px-4 py-2 bg-[#1A1A1A] border border-[#2E2E2E] text-sm text-white/70 hover:border-[#FFD700]/30 hover:text-white transition-all"
+                  className="flex items-center gap-2 px-4 py-2 bg-[#1A1A1A] border border-[#2E2E2E] text-sm text-white/70 hover:border-[#AFECDB]/30 hover:text-white transition-all"
                 >
-                  <span className="text-[#FFD700]">{platform.icon}</span>
-                  <span className="font-inter">{platform.name}</span>
+                  <span className="text-[#AFECDB]">{platform.icon}</span>
+                  <span className="font-body">{platform.name}</span>
                 </motion.a>
               ))}
             </div>
@@ -132,16 +132,16 @@ export function PodcastPreview() {
               className="mt-10 flex gap-8"
             >
               <div>
-                <p className="font-bebas text-4xl text-[#FFD700]">27</p>
-                <p className="text-white/50 text-sm font-inter">Episodes</p>
+                <p className="font-display text-4xl text-[#AFECDB]">27</p>
+                <p className="text-white/50 text-sm font-body">Episodes</p>
               </div>
               <div>
-                <p className="font-bebas text-4xl text-[#AFECDB]">2</p>
-                <p className="text-white/50 text-sm font-inter">Seasons</p>
+                <p className="font-display text-4xl text-[#AFECDB]">2</p>
+                <p className="text-white/50 text-sm font-body">Seasons</p>
               </div>
               <div>
-                <p className="font-bebas text-4xl text-white">5.0</p>
-                <p className="text-white/50 text-sm font-inter">Rating</p>
+                <p className="font-display text-4xl text-white">5.0</p>
+                <p className="text-white/50 text-sm font-body">Rating</p>
               </div>
             </motion.div>
 
@@ -170,13 +170,13 @@ export function PodcastPreview() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                className="group bg-gradient-to-r from-[#1A1A1A] to-[#0D0D0D] border border-[#2E2E2E] p-5 hover:border-[#FFD700]/30 transition-all cursor-pointer"
+                className="group bg-gradient-to-r from-[#1A1A1A] to-[#0D0D0D] border border-[#2E2E2E] p-5 hover:border-[#AFECDB]/30 transition-all cursor-pointer"
               >
                 <div className="flex items-start gap-4">
                   {/* Play button */}
-                  <div className="w-12 h-12 bg-[#FFD700]/10 border border-[#FFD700]/30 flex items-center justify-center flex-shrink-0 group-hover:bg-[#FFD700] group-hover:border-[#FFD700] transition-all">
+                  <div className="w-12 h-12 bg-[#AFECDB]/10 border border-[#AFECDB]/30 flex items-center justify-center flex-shrink-0 group-hover:bg-[#AFECDB] group-hover:border-[#AFECDB] transition-all">
                     <svg
-                      className="w-5 h-5 text-[#FFD700] group-hover:text-black transition-colors ml-0.5"
+                      className="w-5 h-5 text-[#AFECDB] group-hover:text-black transition-colors ml-0.5"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -187,18 +187,18 @@ export function PodcastPreview() {
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-[#FFD700] text-xs font-oswald font-medium tracking-wide">{episode.number}</span>
+                      <span className="text-[#AFECDB] text-xs font-heading font-medium tracking-wide">{episode.number}</span>
                       <span className="text-white/30">|</span>
-                      <span className="text-white/40 text-xs font-inter">{episode.date}</span>
+                      <span className="text-white/40 text-xs font-body">{episode.date}</span>
                     </div>
-                    <h4 className="text-white font-oswald font-semibold mb-1 truncate group-hover:text-[#FFD700] transition-colors tracking-wide">
+                    <h4 className="text-white font-heading font-semibold mb-1 truncate group-hover:text-[#AFECDB] transition-colors tracking-wide">
                       {episode.title}
                     </h4>
-                    <p className="text-white/50 text-sm line-clamp-2 font-inter">{episode.description}</p>
+                    <p className="text-white/50 text-sm line-clamp-2 font-body">{episode.description}</p>
                   </div>
 
                   {/* Duration */}
-                  <div className="text-white/40 text-xs flex-shrink-0 font-inter">
+                  <div className="text-white/40 text-xs flex-shrink-0 font-body">
                     {episode.duration}
                   </div>
                 </div>
@@ -214,7 +214,7 @@ export function PodcastPreview() {
             >
               <a
                 href="/podcast"
-                className="text-[#FFD700] text-sm font-oswald font-medium tracking-wide hover:underline"
+                className="text-[#AFECDB] text-sm font-heading font-medium tracking-wide hover:underline"
               >
                 SEE ALL EPISODES
               </a>

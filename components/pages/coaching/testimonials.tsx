@@ -38,7 +38,7 @@ export function CoachingTestimonials() {
       <div className="relative z-10 container mx-auto px-6">
         <SectionHeader
           label="Client Success"
-          labelVariant="gold"
+          labelVariant="teal"
           title="Transformations That Speak for Themselves"
           subtitle="Real results from real clients who committed to the process."
         />
@@ -55,7 +55,7 @@ export function CoachingTestimonials() {
               {/* Stars */}
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-[#F8F812]">★</span>
+                  <span key={i} className="text-[#AFECDB]">★</span>
                 ))}
               </div>
 
@@ -73,7 +73,7 @@ export function CoachingTestimonials() {
 
               {/* Author */}
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#F8F812]/10 flex items-center justify-center text-xl">
+                <div className="w-10 h-10 rounded-full bg-[#AFECDB]/10 flex items-center justify-center text-xl">
                   {testimonial.image}
                 </div>
                 <div>
@@ -94,7 +94,7 @@ export function CoachingTestimonials() {
         >
           <div className="aspect-video bg-[#1A1A1A] border border-[#2E2E2E] rounded-2xl flex items-center justify-center">
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-[#F8F812]/10 flex items-center justify-center">
+              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-[#AFECDB]/10 flex items-center justify-center">
                 <span className="text-4xl">🎬</span>
               </div>
               <p className="text-white/40">Client Success Stories</p>

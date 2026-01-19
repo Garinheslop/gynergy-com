@@ -46,7 +46,7 @@ export function SpeakingTestimonials() {
       <div className="relative z-10 container mx-auto px-6">
         <SectionHeader
           label="Testimonials"
-          labelVariant="gold"
+          labelVariant="teal"
           title="What Event Organizers Say"
         />
 
@@ -61,7 +61,7 @@ export function SpeakingTestimonials() {
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-[#F8F812]">★</span>
+                  <span key={i} className="text-[#AFECDB]">★</span>
                 ))}
               </div>
 
@@ -70,7 +70,7 @@ export function SpeakingTestimonials() {
               </blockquote>
 
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#F8F812]/10 flex items-center justify-center text-xl">
+                <div className="w-10 h-10 rounded-full bg-[#AFECDB]/10 flex items-center justify-center text-xl">
                   {testimonial.image}
                 </div>
                 <div>

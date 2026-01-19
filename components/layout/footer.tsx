@@ -7,17 +7,17 @@ import { NewsletterForm } from "@/components/ui/newsletter-form"
 const footerLinks = {
   explore: [
     { name: "Programs", href: "/date-zero" },
+    { name: "Shop", href: "/shop" },
     { name: "Podcast", href: "/podcast" },
     { name: "Speaking", href: "/speaking" },
-    { name: "Coaching", href: "/coaching" },
+    { name: "Coaching", href: "/one-on-one-coaching" },
     { name: "Events", href: "/events" },
-    { name: "Contact Us", href: "/contact" },
   ],
   programs: [
-    { name: "Date Zero", href: "/date-zero" },
+    { name: "The 45 Day Awakening", href: "/date-zero" },
     { name: "Level 5 Life", href: "/level-5-life" },
-    { name: "Service Retreats", href: "/retreats" },
-    { name: "Blueprints", href: "/blueprints" },
+    { name: "Service Retreats", href: "/events" },
+    { name: "Fit & Feminine", href: "/fit-and-feminine" },
   ],
   legal: [
     { name: "Privacy Policy", href: "/privacy" },
@@ -66,7 +66,7 @@ export function GynergyComFooter() {
                 viewBox="0 0 32 16"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="text-[#F8F812]"
+                className="text-[#AFECDB]"
               >
                 <path
                   d="M8 2C4.5 2 2 4.5 2 8s2.5 6 6 6c2.5 0 4.5-1.5 6-3.5 1.5 2 3.5 3.5 6 3.5 3.5 0 6-2.5 6-6s-2.5-6-6-6c-2.5 0-4.5 1.5-6 3.5C12.5 3.5 10.5 2 8 2zm0 2c1.5 0 3 1 4 2.5-1 1.5-2.5 2.5-4 2.5-2 0-3.5-1.5-3.5-3.5S6 4 8 4zm16 0c2 0 3.5 1.5 3.5 3.5S26 11 24 11c-1.5 0-3-1-4-2.5 1-1.5 2.5-2.5 4-2.5z"
@@ -90,7 +90,7 @@ export function GynergyComFooter() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-white/5 text-white/60 hover:text-[#F8F812] hover:bg-white/10 transition-all"
+                  className="p-2 rounded-full bg-white/5 text-white/60 hover:text-[#AFECDB] hover:bg-white/10 transition-all"
                   aria-label={social.name}
                 >
                   <social.icon className="h-5 w-5" />

@@ -7,7 +7,7 @@ export function BlogHero() {
     <section className="relative py-24 lg:py-32 bg-black overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F8F812]/5 via-black to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#AFECDB]/5 via-black to-black" />
       </div>
 
       <div className="relative z-10 container mx-auto px-6">
@@ -17,13 +17,13 @@ export function BlogHero() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <span className="inline-block px-4 py-2 rounded-full text-xs font-medium tracking-wider uppercase bg-[#F8F812]/10 text-[#F8F812] border border-[#F8F812]/20 mb-6">
+          <span className="inline-block px-4 py-2 rounded-full text-xs font-medium tracking-wider uppercase bg-[#AFECDB]/10 text-[#AFECDB] border border-[#AFECDB]/20 mb-6">
             GYNERGY Blog
           </span>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight font-inter leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight font-body leading-tight">
             Insights for{" "}
-            <span className="text-[#F8F812]">Transformation</span>
+            <span className="text-[#AFECDB]">Transformation</span>
           </h1>
 
           <p className="text-xl text-white/70 leading-relaxed">

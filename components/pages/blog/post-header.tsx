@@ -15,7 +15,7 @@ export function BlogPostHeader({ post }: Props) {
     <section className="relative py-16 lg:py-24 bg-black overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F8F812]/5 via-black to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#AFECDB]/5 via-black to-black" />
       </div>
 
       <div className="relative z-10 container mx-auto px-6">
@@ -33,14 +33,14 @@ export function BlogPostHeader({ post }: Props) {
             <span className="text-white/30">/</span>
             <Link
               href={`/blog/category/${post.category}`}
-              className="text-[#F8F812] hover:text-[#F8F812]/80 transition-colors"
+              className="text-[#AFECDB] hover:text-[#AFECDB]/80 transition-colors"
             >
               {category?.label}
             </Link>
           </div>
 
           {/* Title */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight font-inter leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight font-body leading-tight">
             {post.title}
           </h1>
 
@@ -48,7 +48,7 @@ export function BlogPostHeader({ post }: Props) {
           <div className="flex flex-wrap items-center gap-4 text-sm">
             {/* Author */}
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-full bg-[#F8F812]/10 flex items-center justify-center text-lg">
+              <div className="w-10 h-10 rounded-full bg-[#AFECDB]/10 flex items-center justify-center text-lg">
                 {post.author.image}
               </div>
               <div>

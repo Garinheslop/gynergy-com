@@ -1,28 +1,27 @@
 import type { Metadata } from "next"
-import { Inter, Oswald, Bebas_Neue } from "next/font/google"
+import { Barlow_Condensed, DM_Sans } from "next/font/google"
 import { GynergyComHeader } from "@/components/layout/header"
 import { GynergyComFooter } from "@/components/layout/footer"
+import { CartProvider } from "@/lib/cart-context"
+import { CartDrawer } from "@/components/shop/cart-drawer"
+import { ARIAChatWidget } from "@/components/aria/chat-widget"
+import { TrackingProvider } from "@/components/analytics/tracking-provider"
 import "./globals.css"
 
-// Typography - premium brand fonts
-const inter = Inter({
+// Google Fonts as fallbacks for self-hosted brand fonts
+// Primary fonts (Humane Bold, D-DIN) are loaded via @font-face in globals.css
+const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-barlow",
   display: "swap",
+  weight: ["400", "600", "700"],
 })
 
-const oswald = Oswald({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-oswald",
+  variable: "--font-dm-sans",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-})
-
-const bebasNeue = Bebas_Neue({
-  subsets: ["latin"],
-  variable: "--font-bebas",
-  display: "swap",
-  weight: "400",
+  weight: ["400", "500", "700"],
 })
 
 export const metadata: Metadata = {
@@ -92,12 +91,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${oswald.variable} ${bebasNeue.variable}`}
+      className={`${barlowCondensed.variable} ${dmSans.variable}`}
     >
-      <body className="min-h-screen bg-black text-white font-inter antialiased">
-        <GynergyComHeader />
-        <main className="flex-1">{children}</main>
-        <GynergyComFooter />
+      <body className="min-h-screen bg-black text-white antialiased">
+        <TrackingProvider>
+          <CartProvider>
+            <GynergyComHeader />
+            <main className="flex-1">{children}</main>
+            <GynergyComFooter />
+            <CartDrawer />
+            <ARIAChatWidget />
+          </CartProvider>
+        </TrackingProvider>
       </body>
     </html>
   )

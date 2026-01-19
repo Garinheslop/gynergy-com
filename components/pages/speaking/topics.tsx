@@ -83,7 +83,7 @@ export function SpeakingTopics() {
       <div className="relative z-10 container mx-auto px-6">
         <SectionHeader
           label="Speaking Topics"
-          labelVariant="gold"
+          labelVariant="teal"
           title="Topics That Transform"
           subtitle="Each presentation is tailored to your audience and can be delivered as a keynote, workshop, or multi-day training."
         />
@@ -95,16 +95,16 @@ export function SpeakingTopics() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-gradient-to-b from-[#1A1A1A] to-[#0D0D0D] rounded-2xl border border-[#2E2E2E] p-6 hover:border-[#F8F812]/30 transition-all"
+              className="group bg-gradient-to-b from-[#1A1A1A] to-[#0D0D0D] rounded-2xl border border-[#2E2E2E] p-6 hover:border-[#AFECDB]/30 transition-all"
             >
-              <div className="w-14 h-14 rounded-xl bg-[#F8F812]/10 border border-[#F8F812]/20 flex items-center justify-center text-[#F8F812] mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-14 h-14 rounded-xl bg-[#AFECDB]/10 border border-[#AFECDB]/20 flex items-center justify-center text-[#AFECDB] mb-4 group-hover:scale-110 transition-transform">
                 {topic.icon}
               </div>
 
-              <h3 className="text-lg font-bold text-white mb-1 font-inter group-hover:text-[#F8F812] transition-colors">
+              <h3 className="text-lg font-bold text-white mb-1 font-body group-hover:text-[#AFECDB] transition-colors">
                 {topic.title}
               </h3>
-              <p className="text-[#F8F812] text-xs mb-3">{topic.subtitle}</p>
+              <p className="text-[#AFECDB] text-xs mb-3">{topic.subtitle}</p>
               <p className="text-white/60 text-sm mb-4 leading-relaxed">
                 {topic.description}
               </p>
@@ -135,7 +135,7 @@ export function SpeakingTopics() {
               title: "Keynotes",
               time: "45-90 min",
               icon: (
-                <svg className="w-6 h-6 text-[#F8F812]" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-[#AFECDB]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.91-3c-.49 0-.9.36-.98.85C16.52 14.2 14.47 16 12 16s-4.52-1.8-4.93-4.15c-.08-.49-.49-.85-.98-.85-.61 0-1.09.54-1 1.14.49 3 2.89 5.35 5.91 5.78V20c0 .55.45 1 1 1s1-.45 1-1v-2.08c3.02-.43 5.42-2.78 5.91-5.78.1-.6-.39-1.14-1-1.14z"/>
                 </svg>
               )
@@ -144,7 +144,7 @@ export function SpeakingTopics() {
               title: "Workshops",
               time: "Half/Full Day",
               icon: (
-                <svg className="w-6 h-6 text-[#F8F812]" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-[#AFECDB]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/>
                 </svg>
               )
@@ -153,7 +153,7 @@ export function SpeakingTopics() {
               title: "Corporate Programs",
               time: "Multi-day",
               icon: (
-                <svg className="w-6 h-6 text-[#F8F812]" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-[#AFECDB]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
                 </svg>
               )

@@ -56,7 +56,7 @@ export function JourneyPathway() {
       subtitle: "Deep Connection",
       description: "Transform your closest relationships. Learn communication, deepen intimacy, and build the partnership you've always wanted.",
       icon: <RelationshipsIcon />,
-      color: "#FFD700",
+      color: "#AFECDB",
       href: "/date-zero"
     },
     {
@@ -74,7 +74,7 @@ export function JourneyPathway() {
       subtitle: "Mental Mastery",
       description: "Rewire limiting beliefs and develop unshakeable confidence. Master your thoughts to master your outcomes.",
       icon: <MindsetIcon />,
-      color: "#FFD700",
+      color: "#AFECDB",
       href: "/level-5-life#mindset"
     },
     {
@@ -102,7 +102,7 @@ export function JourneyPathway() {
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-block text-xs font-oswald font-semibold tracking-[0.2em] uppercase text-[#FFD700] mb-4"
+            className="inline-block text-xs font-heading font-semibold tracking-[0.2em] uppercase text-[#AFECDB] mb-4"
           >
             The Five Pillars
           </motion.span>
@@ -110,7 +110,7 @@ export function JourneyPathway() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-bebas text-4xl md:text-5xl lg:text-6xl text-white tracking-wide mb-4"
+            className="font-display text-4xl md:text-5xl lg:text-6xl text-white tracking-wide mb-4"
           >
             YOUR JOURNEY TO LEVEL 5
           </motion.h2>
@@ -118,7 +118,7 @@ export function JourneyPathway() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-white/60 max-w-2xl mx-auto font-inter"
+            className="text-white/60 max-w-2xl mx-auto font-body"
           >
             True transformation happens when all five pillars of life are aligned.
             Our programs guide you through each dimension, creating lasting change.
@@ -139,7 +139,7 @@ export function JourneyPathway() {
               <div className="h-full bg-gradient-to-b from-[#1A1A1A] to-[#0D0D0D] border border-[#2E2E2E] p-6 transition-all duration-500 hover:border-white/20 hover:shadow-xl">
                 {/* Number */}
                 <div
-                  className="text-xs font-oswald font-bold tracking-widest mb-4"
+                  className="text-xs font-heading font-bold tracking-widest mb-4"
                   style={{ color: pathway.color }}
                 >
                   {pathway.number}
@@ -159,19 +159,19 @@ export function JourneyPathway() {
                 </div>
 
                 {/* Content */}
-                <h3 className="font-oswald text-xl font-semibold text-white mb-1 tracking-wide uppercase group-hover:text-[#FFD700] transition-colors">
+                <h3 className="font-heading text-xl font-semibold text-white mb-1 tracking-wide uppercase group-hover:text-[#AFECDB] transition-colors">
                   {pathway.title}
                 </h3>
-                <p className="text-white/50 text-xs font-oswald uppercase tracking-wider mb-4">
+                <p className="text-white/50 text-xs font-heading uppercase tracking-wider mb-4">
                   {pathway.subtitle}
                 </p>
-                <p className="text-white/60 text-sm leading-relaxed mb-6 font-inter">
+                <p className="text-white/60 text-sm leading-relaxed mb-6 font-body">
                   {pathway.description}
                 </p>
 
                 {/* Arrow */}
                 <div
-                  className="flex items-center text-sm font-oswald font-medium tracking-wide transition-all duration-300 group-hover:translate-x-2"
+                  className="flex items-center text-sm font-heading font-medium tracking-wide transition-all duration-300 group-hover:translate-x-2"
                   style={{ color: pathway.color }}
                 >
                   <span>EXPLORE</span>
@@ -200,7 +200,7 @@ export function JourneyPathway() {
           className="mt-16 text-center"
         >
           <div className="inline-flex flex-col items-center">
-            <p className="text-white/60 text-sm mb-4 font-inter">
+            <p className="text-white/60 text-sm mb-4 font-body">
               Ready to transform all five pillars?
             </p>
             <Button href="/level-5-life" size="lg">
@@ -218,7 +218,7 @@ export function JourneyPathway() {
         >
           <div className="flex items-center gap-4">
             <div className="w-24 h-px bg-gradient-to-r from-transparent to-[#AFECDB]/30" />
-            <div className="w-2 h-2 bg-[#FFD700]" />
+            <div className="w-2 h-2 bg-[#AFECDB]" />
             <div className="w-24 h-px bg-gradient-to-l from-transparent to-[#AFECDB]/30" />
           </div>
         </motion.div>

@@ -20,7 +20,7 @@ export function BlogRelatedPosts({ posts }: Props) {
       <div className="relative z-10 container mx-auto px-6">
         <SectionHeader
           label="Related Articles"
-          labelVariant="gold"
+          labelVariant="teal"
           title="Keep Reading"
         />
 
@@ -38,7 +38,7 @@ export function BlogRelatedPosts({ posts }: Props) {
               >
                 <Link href={`/blog/${post.slug}`} className="block">
                   {/* Image placeholder */}
-                  <div className="relative aspect-[16/10] mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] border border-[#2E2E2E] group-hover:border-[#F8F812]/30 transition-all">
+                  <div className="relative aspect-[16/10] mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] border border-[#2E2E2E] group-hover:border-[#AFECDB]/30 transition-all">
                     <div className="absolute inset-0 flex items-center justify-center">
                       {category?.icon ? (
                         <span className="text-3xl">{category.icon}</span>
@@ -56,12 +56,12 @@ export function BlogRelatedPosts({ posts }: Props) {
                   {/* Content */}
                   <div>
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[#F8F812] text-xs font-medium uppercase tracking-wider">
+                      <span className="text-[#AFECDB] text-xs font-medium uppercase tracking-wider">
                         {category?.label}
                       </span>
                     </div>
 
-                    <h3 className="text-base font-bold text-white mb-2 font-inter group-hover:text-[#F8F812] transition-colors line-clamp-2">
+                    <h3 className="text-base font-bold text-white mb-2 font-body group-hover:text-[#AFECDB] transition-colors line-clamp-2">
                       {post.title}
                     </h3>
 

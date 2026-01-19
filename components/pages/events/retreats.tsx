@@ -72,7 +72,7 @@ export function EventsRetreats() {
       <div className="relative z-10 container mx-auto px-6">
         <SectionHeader
           label="Service Retreat"
-          labelVariant="gold"
+          labelVariant="teal"
           title="Transform Through Service"
           subtitle="Experience profound transformation through giving back. Build homes, serve communities, and discover your purpose in beautiful Ensenada, Mexico."
         />
@@ -83,19 +83,19 @@ export function EventsRetreats() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] rounded-3xl border border-[#F8F812]/30 overflow-hidden"
+            className="bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] rounded-3xl border border-[#AFECDB]/30 overflow-hidden"
           >
             {/* Header */}
-            <div className="relative bg-gradient-to-r from-[#F8F812]/10 to-[#AFECDB]/10 p-8 lg:p-12">
+            <div className="relative bg-gradient-to-r from-[#AFECDB]/10 to-[#AFECDB]/10 p-8 lg:p-12">
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
                 <div>
                   <div className="flex items-center gap-3 mb-2">
-                    <svg className="w-8 h-8 text-[#F8F812]" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-8 h-8 text-[#AFECDB]" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                     </svg>
                     <span className="text-[#AFECDB] text-sm font-medium uppercase tracking-wider">Ensenada, Mexico</span>
                   </div>
-                  <h3 className="text-2xl lg:text-3xl font-bold text-white font-inter">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-white font-body">
                     GYNERGY Service Retreat
                   </h3>
                   <p className="text-white/60 mt-2">
@@ -104,7 +104,7 @@ export function EventsRetreats() {
                 </div>
                 <div className="text-left lg:text-right">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold text-[#F8F812] font-inter">$1,497</span>
+                    <span className="text-4xl font-bold text-[#AFECDB] font-body">$1,497</span>
                   </div>
                   <p className="text-white/50 text-sm mt-1">Everything included</p>
                 </div>
@@ -127,7 +127,7 @@ export function EventsRetreats() {
                       key={item.title}
                       className="flex items-start gap-3 p-4 bg-black/30 border border-[#2E2E2E] rounded-xl"
                     >
-                      <div className="w-10 h-10 rounded-lg bg-[#F8F812]/10 border border-[#F8F812]/20 flex items-center justify-center flex-shrink-0 text-[#F8F812]">
+                      <div className="w-10 h-10 rounded-lg bg-[#AFECDB]/10 border border-[#AFECDB]/20 flex items-center justify-center flex-shrink-0 text-[#AFECDB]">
                         {item.icon}
                       </div>
                       <div>
@@ -140,7 +140,7 @@ export function EventsRetreats() {
               </div>
 
               {/* Bundle offer */}
-              <div className="p-6 bg-gradient-to-r from-[#AFECDB]/10 to-[#F8F812]/10 border border-[#AFECDB]/30 rounded-2xl mb-8">
+              <div className="p-6 bg-gradient-to-r from-[#AFECDB]/10 to-[#AFECDB]/10 border border-[#AFECDB]/30 rounded-2xl mb-8">
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-full bg-[#AFECDB]/20 flex items-center justify-center">
@@ -156,7 +156,7 @@ export function EventsRetreats() {
                   <div className="flex items-center gap-4">
                     <div className="text-right">
                       <span className="text-white/40 line-through text-sm">$2,994</span>
-                      <span className="text-2xl font-bold text-[#AFECDB] font-inter ml-2">$2,497</span>
+                      <span className="text-2xl font-bold text-[#AFECDB] font-body ml-2">$2,497</span>
                     </div>
                     <Button href="/the-45-day-awakening" size="sm" variant="secondary">
                       Get Bundle
@@ -185,7 +185,7 @@ export function EventsRetreats() {
             className="mt-8 text-center"
           >
             <div className="inline-flex items-center gap-3 px-6 py-3 bg-[#1A1A1A] border border-[#2E2E2E] rounded-full">
-              <svg className="w-5 h-5 text-[#F8F812]" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-[#AFECDB]" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
               </svg>
               <span className="text-white/70 text-sm">

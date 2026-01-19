@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronDown, ShoppingBag } from "lucide-react"
+import { useCart } from "@/lib/cart-context"
 
 const navigation = [
   {
@@ -25,6 +26,7 @@ export function GynergyComHeader() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const { totalItems, openCart } = useCart()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +56,7 @@ export function GynergyComHeader() {
                 viewBox="0 0 32 16"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="text-[#F8F812]"
+                className="text-[#AFECDB]"
               >
                 <path
                   d="M8 2C4.5 2 2 4.5 2 8s2.5 6 6 6c2.5 0 4.5-1.5 6-3.5 1.5 2 3.5 3.5 6 3.5 3.5 0 6-2.5 6-6s-2.5-6-6-6c-2.5 0-4.5 1.5-6 3.5C12.5 3.5 10.5 2 8 2zm0 2c1.5 0 3 1 4 2.5-1 1.5-2.5 2.5-4 2.5-2 0-3.5-1.5-3.5-3.5S6 4 8 4zm16 0c2 0 3.5 1.5 3.5 3.5S26 11 24 11c-1.5 0-3-1-4-2.5 1-1.5 2.5-2.5 4-2.5z"
@@ -118,8 +120,22 @@ export function GynergyComHeader() {
             ))}
           </div>
 
-          {/* Right Side - Member Login & CTA */}
+          {/* Right Side - Cart, Member Login & CTA */}
           <div className="hidden lg:flex lg:items-center lg:gap-4">
+            {/* Cart Button */}
+            <button
+              type="button"
+              onClick={openCart}
+              className="relative p-2 text-white/60 hover:text-white transition-colors"
+              aria-label="Shopping cart"
+            >
+              <ShoppingBag className="h-5 w-5" />
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#AFECDB] text-xs font-bold text-black">
+                  {totalItems}
+                </span>
+              )}
+            </button>
             <Link
               href="https://app.lvl5life.com"
               className="text-sm font-medium text-white/60 hover:text-white transition-colors"
@@ -128,7 +144,7 @@ export function GynergyComHeader() {
             </Link>
             <Link
               href="/date-zero"
-              className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-archivo font-bold uppercase tracking-wider text-black bg-[#F8F812] rounded-full hover:bg-[#E6E610] transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-heading font-bold uppercase tracking-wider text-black bg-[#AFECDB] hover:bg-[#7DD8C0] transition-all duration-300 hover:scale-105"
             >
               Start Your Journey
             </Link>
@@ -193,6 +209,18 @@ export function GynergyComHeader() {
               ))}
 
               <div className="pt-4 border-t border-white/10 space-y-4">
+                {/* Mobile Cart Button */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    openCart()
+                    setMobileMenuOpen(false)
+                  }}
+                  className="flex items-center gap-2 text-sm text-white/60 hover:text-white"
+                >
+                  <ShoppingBag className="h-5 w-5" />
+                  Cart {totalItems > 0 && `(${totalItems})`}
+                </button>
                 <Link
                   href="https://app.lvl5life.com"
                   className="block text-sm text-white/60 hover:text-white"
@@ -201,7 +229,8 @@ export function GynergyComHeader() {
                 </Link>
                 <Link
                   href="/date-zero"
-                  className="block w-full text-center px-6 py-3 text-sm font-archivo font-bold uppercase tracking-wider text-black bg-[#F8F812] rounded-full hover:bg-[#E6E610] transition-all"
+                  className="block w-full text-center px-6 py-3 text-sm font-heading font-bold uppercase tracking-wider text-black bg-[#AFECDB] hover:bg-[#7DD8C0] transition-all"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Start Your Journey
                 </Link>

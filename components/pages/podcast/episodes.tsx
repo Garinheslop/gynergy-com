@@ -1,3 +1,5 @@
+
+
 "use client"
 
 import { motion } from "framer-motion"
@@ -75,17 +77,19 @@ export function PodcastEpisodes() {
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState<"all" | "recent">("all")
 
-  // Fetch episodes from Buzzsprout RSS (would be implemented via API route)
+  // Fetch episodes from Buzzsprout RSS via API route
   useEffect(() => {
     const fetchEpisodes = async () => {
       try {
-        // In production, this would call our API route that fetches from Buzzsprout
-        // const response = await fetch("/api/podcast/episodes")
-        // const data = await response.json()
-        // setEpisodes(data.episodes)
+        const response = await fetch("/api/podcast/episodes")
+        const data = await response.json()
 
-        // For now, use placeholder data
-        setEpisodes(placeholderEpisodes)
+        if (data.success && data.episodes.length > 0) {
+          setEpisodes(data.episodes)
+        } else {
+          // Fallback to placeholder if API fails
+          setEpisodes(placeholderEpisodes)
+        }
       } catch (error) {
         console.error("Failed to fetch episodes:", error)
         setEpisodes(placeholderEpisodes)
@@ -104,7 +108,7 @@ export function PodcastEpisodes() {
       <div className="relative z-10 container mx-auto px-6">
         <SectionHeader
           label="Episodes"
-          labelVariant="gold"
+          labelVariant="teal"
           title="Listen to the Latest"
           subtitle="Deep conversations on transformation, relationships, and living your best life."
         />
@@ -115,7 +119,7 @@ export function PodcastEpisodes() {
             onClick={() => setFilter("all")}
             className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
               filter === "all"
-                ? "bg-[#F8F812] text-black"
+                ? "bg-[#AFECDB] text-black"
                 : "bg-[#1A1A1A] text-white/70 hover:bg-[#2E2E2E]"
             }`}
           >
@@ -125,7 +129,7 @@ export function PodcastEpisodes() {
             onClick={() => setFilter("recent")}
             className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
               filter === "recent"
-                ? "bg-[#F8F812] text-black"
+                ? "bg-[#AFECDB] text-black"
                 : "bg-[#1A1A1A] text-white/70 hover:bg-[#2E2E2E]"
             }`}
           >
@@ -156,13 +160,13 @@ export function PodcastEpisodes() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group bg-gradient-to-r from-[#1A1A1A] to-[#0D0D0D] rounded-xl border border-[#2E2E2E] p-6 hover:border-[#F8F812]/30 transition-all cursor-pointer"
+                className="group bg-gradient-to-r from-[#1A1A1A] to-[#0D0D0D] rounded-xl border border-[#2E2E2E] p-6 hover:border-[#AFECDB]/30 transition-all cursor-pointer"
               >
                 <div className="flex items-start gap-4">
                   {/* Play button */}
-                  <div className="w-14 h-14 rounded-full bg-[#F8F812]/10 border border-[#F8F812]/30 flex items-center justify-center flex-shrink-0 group-hover:bg-[#F8F812] group-hover:border-[#F8F812] transition-all">
+                  <div className="w-14 h-14 rounded-full bg-[#AFECDB]/10 border border-[#AFECDB]/30 flex items-center justify-center flex-shrink-0 group-hover:bg-[#AFECDB] group-hover:border-[#AFECDB] transition-all">
                     <svg
-                      className="w-6 h-6 text-[#F8F812] group-hover:text-black transition-colors ml-0.5"
+                      className="w-6 h-6 text-[#AFECDB] group-hover:text-black transition-colors ml-0.5"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -173,13 +177,13 @@ export function PodcastEpisodes() {
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-[#F8F812] text-sm font-medium">
+                      <span className="text-[#AFECDB] text-sm font-medium">
                         {episode.episodeNumber}
                       </span>
                       <span className="text-white/30">•</span>
                       <span className="text-white/40 text-sm">{episode.pubDate}</span>
                     </div>
-                    <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[#F8F812] transition-colors">
+                    <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[#AFECDB] transition-colors">
                       {episode.title}
                     </h3>
                     <p className="text-white/50 text-sm line-clamp-2">
@@ -207,7 +211,7 @@ export function PodcastEpisodes() {
           >
             <button
               onClick={() => setFilter("all")}
-              className="text-[#F8F812] font-medium hover:underline"
+              className="text-[#AFECDB] font-medium hover:underline"
             >
               View all episodes →
             </button>

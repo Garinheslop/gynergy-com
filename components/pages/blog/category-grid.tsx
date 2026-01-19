@@ -30,7 +30,7 @@ export function BlogCategoryGrid({ posts }: Props) {
             </p>
             <Link
               href="/blog"
-              className="text-[#F8F812] hover:underline"
+              className="text-[#AFECDB] hover:underline"
             >
               ← Back to all articles
             </Link>
@@ -57,7 +57,7 @@ export function BlogCategoryGrid({ posts }: Props) {
               >
                 <Link href={`/blog/${post.slug}`} className="block">
                   {/* Image placeholder */}
-                  <div className="relative aspect-[16/10] mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] border border-[#2E2E2E] group-hover:border-[#F8F812]/30 transition-all">
+                  <div className="relative aspect-[16/10] mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] border border-[#2E2E2E] group-hover:border-[#AFECDB]/30 transition-all">
                     <div className="absolute inset-0 flex items-center justify-center">
                       {category?.icon ? (
                         <span className="text-4xl">{category.icon}</span>
@@ -68,7 +68,7 @@ export function BlogCategoryGrid({ posts }: Props) {
                       )}
                     </div>
                     {post.featured && (
-                      <div className="absolute top-3 left-3 px-2 py-1 bg-[#F8F812] text-black text-xs font-bold rounded">
+                      <div className="absolute top-3 left-3 px-2 py-1 bg-[#AFECDB] text-black text-xs font-bold rounded">
                         Featured
                       </div>
                     )}
@@ -89,7 +89,7 @@ export function BlogCategoryGrid({ posts }: Props) {
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-white mb-2 font-inter group-hover:text-[#F8F812] transition-colors line-clamp-2">
+                    <h3 className="text-lg font-bold text-white mb-2 font-body group-hover:text-[#AFECDB] transition-colors line-clamp-2">
                       {post.title}
                     </h3>
 
@@ -99,7 +99,7 @@ export function BlogCategoryGrid({ posts }: Props) {
 
                     {/* Author */}
                     <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-full bg-[#F8F812]/10 flex items-center justify-center text-sm">
+                      <div className="w-6 h-6 rounded-full bg-[#AFECDB]/10 flex items-center justify-center text-sm">
                         {post.author.image}
                       </div>
                       <span className="text-white/50 text-xs">{post.author.name}</span>

@@ -78,18 +78,18 @@ export function DateZeroPreview() {
             transition={{ duration: 0.7 }}
           >
             {/* Section header */}
-            <span className="inline-block text-xs font-oswald font-semibold tracking-[0.2em] uppercase text-[#AFECDB] mb-4">
+            <span className="inline-block text-xs font-heading font-semibold tracking-[0.2em] uppercase text-[#AFECDB] mb-4">
               Personal Transformation
             </span>
-            <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl text-white tracking-wide mb-4">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-white tracking-wide mb-4">
               THE 45 DAY AWAKENING
             </h2>
-            <p className="text-white/60 max-w-lg font-inter leading-relaxed mb-4">
+            <p className="text-white/60 max-w-lg font-body leading-relaxed mb-4">
               A transformative 45-day journey that begins with gratitude and ends with
               a completely new perspective on life. This isn't just a journal—it's an
               entire self-guided experience designed to help you master the self to serve the world.
             </p>
-            <p className="text-white/40 text-sm font-inter mb-8">
+            <p className="text-white/40 text-sm font-body mb-8">
               <span className="text-[#AFECDB]">Includes the Date Zero Gratitude Journal</span> —
               45 days of guided reflection, prompts, and exercises.
             </p>
@@ -108,10 +108,10 @@ export function DateZeroPreview() {
                     {feature.icon}
                   </div>
                   <div>
-                    <h4 className="text-white font-oswald font-semibold text-sm mb-1 tracking-wide uppercase">
+                    <h4 className="text-white font-heading font-semibold text-sm mb-1 tracking-wide uppercase">
                       {feature.title}
                     </h4>
-                    <p className="text-white/50 text-xs leading-relaxed font-inter">
+                    <p className="text-white/50 text-xs leading-relaxed font-body">
                       {feature.description}
                     </p>
                   </div>
@@ -127,12 +127,12 @@ export function DateZeroPreview() {
               className="mt-8 flex flex-wrap gap-6 items-center"
             >
               <div className="bg-[#1A1A1A] border border-[#2E2E2E] px-5 py-3">
-                <p className="text-white/40 text-xs font-inter uppercase tracking-wider mb-1">Full Experience</p>
-                <p className="text-[#FFD700] font-bebas text-2xl">$1,497</p>
+                <p className="text-white/40 text-xs font-body uppercase tracking-wider mb-1">Full Experience</p>
+                <p className="text-[#AFECDB] font-display text-2xl">$1,497</p>
               </div>
               <div className="bg-[#1A1A1A] border border-[#2E2E2E] px-5 py-3">
-                <p className="text-white/40 text-xs font-inter uppercase tracking-wider mb-1">Journal Only</p>
-                <p className="text-[#AFECDB] font-bebas text-2xl">$197</p>
+                <p className="text-white/40 text-xs font-body uppercase tracking-wider mb-1">Journal Only</p>
+                <p className="text-[#AFECDB] font-display text-2xl">$197</p>
               </div>
             </motion.div>
 
@@ -172,8 +172,8 @@ export function DateZeroPreview() {
                   <div className="w-16 h-16 mx-auto mb-4 bg-[#AFECDB]/20 border border-[#AFECDB]/30 flex items-center justify-center text-[#AFECDB]">
                     <JournalIcon />
                   </div>
-                  <p className="text-[#AFECDB] font-bebas text-3xl tracking-wide">45 DAYS</p>
-                  <p className="text-white/60 text-sm font-inter">To Awakening</p>
+                  <p className="text-[#AFECDB] font-display text-3xl tracking-wide">45 DAYS</p>
+                  <p className="text-white/60 text-sm font-body">To Awakening</p>
                 </div>
               </div>
 
@@ -191,7 +191,7 @@ export function DateZeroPreview() {
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-4"
               >
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#FFD700]" />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#AFECDB]" />
               </motion.div>
 
               {/* Stats badges - sharp corners */}
@@ -201,8 +201,8 @@ export function DateZeroPreview() {
                 transition={{ duration: 0.5, delay: 0.8 }}
                 className="absolute top-10 right-0 bg-[#1A1A1A] border border-[#2E2E2E] px-4 py-3"
               >
-                <p className="text-[#AFECDB] font-bebas text-2xl">45</p>
-                <p className="text-white/50 text-xs font-inter">Days To Awakening</p>
+                <p className="text-[#AFECDB] font-display text-2xl">45</p>
+                <p className="text-white/50 text-xs font-body">Days To Awakening</p>
               </motion.div>
 
               <motion.div
@@ -211,8 +211,8 @@ export function DateZeroPreview() {
                 transition={{ duration: 0.5, delay: 0.9 }}
                 className="absolute bottom-10 left-0 bg-[#1A1A1A] border border-[#2E2E2E] px-4 py-3"
               >
-                <p className="text-[#FFD700] font-bebas text-2xl">Gratitude</p>
-                <p className="text-white/50 text-xs font-inter">Foundation Of Change</p>
+                <p className="text-[#AFECDB] font-display text-2xl">Gratitude</p>
+                <p className="text-white/50 text-xs font-body">Foundation Of Change</p>
               </motion.div>
             </div>
           </motion.div>

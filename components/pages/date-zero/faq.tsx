@@ -62,13 +62,13 @@ export function DateZeroFAQ() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-[#FFD700] text-sm font-medium tracking-wider uppercase font-oswald">
+          <span className="text-[#AFECDB] text-sm font-medium tracking-wider uppercase font-heading">
             QUESTIONS
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-4 mb-6 font-bebas">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-4 mb-6 font-display">
             FREQUENTLY ASKED QUESTIONS
           </h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto font-inter">
+          <p className="text-white/60 text-lg max-w-2xl mx-auto font-body">
             Have more questions? Reach out to us at hello@gynergy.com
           </p>
         </motion.div>
@@ -89,16 +89,16 @@ export function DateZeroFAQ() {
                 <div
                   className={`bg-[#1A1A1A] border p-5 transition-all ${
                     openIndex === index
-                      ? 'border-[#FFD700]/30'
+                      ? 'border-[#AFECDB]/30'
                       : 'border-[#2E2E2E] hover:border-white/20'
                   }`}
                 >
                   <div className="flex items-center justify-between gap-4">
-                    <h3 className="text-white font-semibold pr-4 font-oswald">{faq.question}</h3>
+                    <h3 className="text-white font-semibold pr-4 font-heading">{faq.question}</h3>
                     <div
                       className={`w-8 h-8 flex items-center justify-center flex-shrink-0 transition-all ${
                         openIndex === index
-                          ? 'bg-[#FFD700] text-black rotate-45'
+                          ? 'bg-[#AFECDB] text-black rotate-45'
                           : 'bg-[#2E2E2E] text-white'
                       }`}
                     >
@@ -117,7 +117,7 @@ export function DateZeroFAQ() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className="text-white/60 mt-4 leading-relaxed text-sm font-inter">
+                    <p className="text-white/60 mt-4 leading-relaxed text-sm font-body">
                       {faq.answer}
                     </p>
                   </motion.div>
@@ -134,10 +134,10 @@ export function DateZeroFAQ() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mt-12 text-center"
         >
-          <p className="text-white/60 mb-4 font-inter">Still have questions?</p>
+          <p className="text-white/60 mb-4 font-body">Still have questions?</p>
           <a
             href="mailto:hello@gynergy.com"
-            className="inline-flex items-center gap-2 text-[#FFD700] font-medium hover:underline font-oswald"
+            className="inline-flex items-center gap-2 text-[#AFECDB] font-medium hover:underline font-heading"
           >
             <span>Contact us at hello@gynergy.com</span>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

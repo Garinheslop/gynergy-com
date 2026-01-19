@@ -3,6 +3,8 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Loader2, CheckCircle, ArrowRight } from "lucide-react"
+import { getAttributionData } from "@/lib/utm-tracking"
+import { trackConversion } from "@/components/analytics/google-analytics"
 
 interface NewsletterFormProps {
   variant?: "default" | "footer" | "hero"
@@ -25,7 +27,10 @@ export function NewsletterForm({
     setStatus("loading")
 
     try {
-      // Submit to GHL
+      // Get UTM attribution data
+      const attribution = getAttributionData()
+
+      // Submit to GHL with attribution
       const response = await fetch("/api/ghl/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -34,10 +39,14 @@ export function NewsletterForm({
           name,
           tags: ["newsletter", "gynergy-com", "website-signup"],
           source: "gynergy.com",
+          customFields: attribution,
         }),
       })
 
       if (!response.ok) throw new Error("Failed to subscribe")
+
+      // Track conversion in GA
+      trackConversion.newsletterSignup(email)
 
       setStatus("success")
       setEmail("")
@@ -45,7 +54,7 @@ export function NewsletterForm({
 
       // Reset after 5 seconds
       setTimeout(() => setStatus("idle"), 5000)
-    } catch (error) {
+    } catch {
       setStatus("error")
       setErrorMessage("Something went wrong. Please try again.")
       setTimeout(() => setStatus("idle"), 3000)

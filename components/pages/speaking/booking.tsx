@@ -5,6 +5,8 @@ import { useInView } from "framer-motion"
 import { useRef, useState } from "react"
 import { SectionHeader } from "@/components/ui/section-label"
 import { Button } from "@/components/ui/button"
+import { getAttributionData } from "@/lib/utm-tracking"
+import { trackConversion } from "@/components/analytics/google-analytics"
 
 export function SpeakingBooking() {
   const ref = useRef(null)
@@ -17,15 +19,24 @@ export function SpeakingBooking() {
     setIsSubmitting(true)
 
     const formData = new FormData(e.currentTarget)
+    const eventType = formData.get("eventType") as string
+
+    // Get UTM attribution data
+    const attribution = getAttributionData()
+
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
-      organization: formData.get("organization"),
-      eventType: formData.get("eventType"),
-      eventDate: formData.get("eventDate"),
-      audience: formData.get("audience"),
-      message: formData.get("message"),
-      source: "speaking-inquiry"
+      tags: ["speaking-inquiry", "gynergy-com", `event-${eventType}`],
+      source: "gynergy.com/speaking",
+      customFields: {
+        ...attribution,
+        organization: formData.get("organization") as string,
+        event_type: eventType,
+        event_date: formData.get("eventDate") as string,
+        audience_size: formData.get("audience") as string,
+        event_details: formData.get("message") as string,
+      }
     }
 
     try {
@@ -36,6 +47,9 @@ export function SpeakingBooking() {
       })
 
       if (response.ok) {
+        // Track conversion in GA
+        trackConversion.speakingInquiry()
+
         setIsSubmitted(true)
       }
     } catch (error) {
@@ -54,13 +68,13 @@ export function SpeakingBooking() {
             animate={{ opacity: 1, scale: 1 }}
             className="max-w-2xl mx-auto text-center"
           >
-            <div className="bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] rounded-3xl border border-[#F8F812]/30 p-12">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#F8F812]/20 flex items-center justify-center">
-                <svg className="w-10 h-10 text-[#F8F812]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] rounded-3xl border border-[#AFECDB]/30 p-12">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#AFECDB]/20 flex items-center justify-center">
+                <svg className="w-10 h-10 text-[#AFECDB]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h2 className="text-3xl font-bold text-white mb-4 font-inter">Inquiry Received!</h2>
+              <h2 className="text-3xl font-bold text-white mb-4 font-body">Inquiry Received!</h2>
               <p className="text-white/70">
                 Thank you for your interest. Our team will review your request and
                 reach out within 48 hours.
@@ -77,7 +91,7 @@ export function SpeakingBooking() {
       <div className="relative z-10 container mx-auto px-6">
         <SectionHeader
           label="Book Garin"
-          labelVariant="gold"
+          labelVariant="teal"
           title="Bring Transformation to Your Event"
           subtitle="Complete the form below and our team will follow up within 48 hours."
         />
@@ -99,7 +113,7 @@ export function SpeakingBooking() {
                   type="text"
                   name="name"
                   required
-                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#F8F812]/50"
+                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#AFECDB]/50"
                   placeholder="John Doe"
                 />
               </div>
@@ -109,7 +123,7 @@ export function SpeakingBooking() {
                   type="email"
                   name="email"
                   required
-                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#F8F812]/50"
+                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#AFECDB]/50"
                   placeholder="john@company.com"
                 />
               </div>
@@ -121,7 +135,7 @@ export function SpeakingBooking() {
                 type="text"
                 name="organization"
                 required
-                className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#F8F812]/50"
+                className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#AFECDB]/50"
                 placeholder="Company or Event Name"
               />
             </div>
@@ -132,7 +146,7 @@ export function SpeakingBooking() {
                 <select
                   name="eventType"
                   required
-                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white focus:outline-none focus:border-[#F8F812]/50"
+                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white focus:outline-none focus:border-[#AFECDB]/50"
                 >
                   <option value="">Select...</option>
                   <option value="keynote">Keynote Speech</option>
@@ -148,7 +162,7 @@ export function SpeakingBooking() {
                   type="text"
                   name="eventDate"
                   required
-                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#F8F812]/50"
+                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#AFECDB]/50"
                   placeholder="e.g., March 2025 or TBD"
                 />
               </div>
@@ -159,7 +173,7 @@ export function SpeakingBooking() {
               <select
                 name="audience"
                 required
-                className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white focus:outline-none focus:border-[#F8F812]/50"
+                className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white focus:outline-none focus:border-[#AFECDB]/50"
               >
                 <option value="">Select...</option>
                 <option value="small">Under 50</option>
@@ -174,7 +188,7 @@ export function SpeakingBooking() {
               <textarea
                 name="message"
                 rows={4}
-                className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#F8F812]/50 resize-none"
+                className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#AFECDB]/50 resize-none"
                 placeholder="Share any details about your audience, goals, or specific topics of interest..."
               />
             </div>

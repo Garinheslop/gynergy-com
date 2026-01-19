@@ -52,7 +52,7 @@ export function ImagePlaceholder({
     portrait: "bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] border border-[#2E2E2E] rounded-none",
     hero: "bg-gradient-to-br from-[#0D0D0D] via-[#1A1A1A] to-[#0D0D0D]",
     card: "bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] border border-[#2E2E2E] rounded-lg overflow-hidden",
-    avatar: "bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] border-2 border-[#FFD700]/20 rounded-full",
+    avatar: "bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] border-2 border-[#AFECDB]/20 rounded-full",
   }
 
   return (
@@ -76,8 +76,8 @@ export function ImagePlaceholder({
               45deg,
               transparent,
               transparent 10px,
-              rgba(255,215,0,0.1) 10px,
-              rgba(255,215,0,0.1) 11px
+              rgba(175,236,219,0.1) 10px,
+              rgba(175,236,219,0.1) 11px
             )`
           }}
         />
@@ -99,7 +99,7 @@ export function ImagePlaceholder({
           />
         </svg>
         {label && (
-          <span className="text-white/30 text-xs font-inter text-center px-4 max-w-[200px]">
+          <span className="text-white/30 text-xs font-body text-center px-4 max-w-[200px]">
             {label}
           </span>
         )}
@@ -139,7 +139,7 @@ export function AvatarPlaceholder({
       className={cn(
         "relative flex items-center justify-center rounded-full",
         "bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D]",
-        "border-2 border-[#FFD700]/20",
+        "border-2 border-[#AFECDB]/20",
         sizes[size],
         className
       )}
@@ -177,13 +177,13 @@ export function HeroBackgroundPlaceholder({
         <div
           className="absolute inset-0 opacity-5"
           style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(255,215,0,0.1) 0%, transparent 50%),
-                              radial-gradient(circle at 75% 75%, rgba(255,215,0,0.05) 0%, transparent 50%)`
+            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(175,236,219,0.1) 0%, transparent 50%),
+                              radial-gradient(circle at 75% 75%, rgba(175,236,219,0.05) 0%, transparent 50%)`
           }}
         />
         {/* Label for development */}
         {label && (
-          <div className="absolute top-4 left-4 text-white/20 text-xs font-inter">
+          <div className="absolute top-4 left-4 text-white/20 text-xs font-body">
             [Image: {label}]
           </div>
         )}

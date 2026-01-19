@@ -66,7 +66,7 @@ export function CoachingPackages() {
       <div className="relative z-10 container mx-auto px-6">
         <SectionHeader
           label="Coaching Packages"
-          labelVariant="gold"
+          labelVariant="teal"
           title="Choose Your Path"
           subtitle="All packages are by application only. We'll determine the best fit during your discovery call."
         />
@@ -80,21 +80,21 @@ export function CoachingPackages() {
               transition={{ duration: 0.5, delay: index * 0.15 }}
               className={`relative bg-gradient-to-b from-[#1A1A1A] to-[#0D0D0D] rounded-2xl border p-8 ${
                 pkg.popular
-                  ? "border-[#F8F812]/50 ring-1 ring-[#F8F812]/20"
+                  ? "border-[#AFECDB]/50 ring-1 ring-[#AFECDB]/20"
                   : "border-[#2E2E2E]"
               }`}
             >
               {pkg.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#F8F812] text-black text-xs font-bold rounded-full">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#AFECDB] text-black text-xs font-bold rounded-full">
                   Most Popular
                 </div>
               )}
 
               <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-white font-inter">
+                <h3 className="text-2xl font-bold text-white font-body">
                   {pkg.name}
                 </h3>
-                <p className="text-[#F8F812] font-medium">{pkg.duration}</p>
+                <p className="text-[#AFECDB] font-medium">{pkg.duration}</p>
                 <p className="text-white/50 text-sm mt-2">{pkg.description}</p>
               </div>
 

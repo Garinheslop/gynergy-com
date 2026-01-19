@@ -4,6 +4,8 @@ import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
+import { getAttributionData } from "@/lib/utm-tracking"
+import { trackConversion } from "@/components/analytics/google-analytics"
 
 export function BlogNewsletter() {
   const ref = useRef(null)
@@ -17,16 +19,24 @@ export function BlogNewsletter() {
     setIsSubmitting(true)
 
     try {
+      // Get UTM attribution data
+      const attribution = getAttributionData()
+
       const response = await fetch("/api/ghl/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email,
-          source: "blog-newsletter"
+          tags: ["newsletter", "blog-subscriber", "gynergy-com"],
+          source: "gynergy.com/blog",
+          customFields: attribution,
         })
       })
 
       if (response.ok) {
+        // Track conversion in GA
+        trackConversion.newsletterSignup(email)
+
         setIsSubmitted(true)
         setEmail("")
       }
@@ -47,13 +57,13 @@ export function BlogNewsletter() {
           className="max-w-2xl mx-auto"
         >
           <div className="bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] rounded-3xl border border-[#2E2E2E] p-8 md:p-12 text-center">
-            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#F8F812]/10 border border-[#F8F812]/20 flex items-center justify-center">
-              <svg className="w-8 h-8 text-[#F8F812]" fill="currentColor" viewBox="0 0 24 24">
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#AFECDB]/10 border border-[#AFECDB]/20 flex items-center justify-center">
+              <svg className="w-8 h-8 text-[#AFECDB]" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
               </svg>
             </div>
 
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 font-inter">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 font-body">
               Get Weekly Insights
             </h2>
 
@@ -80,7 +90,7 @@ export function BlogNewsletter() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
-                  className="flex-1 px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#F8F812]/50"
+                  className="flex-1 px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#AFECDB]/50"
                 />
                 <Button type="submit" disabled={isSubmitting}>
                   {isSubmitting ? "..." : "Subscribe"}

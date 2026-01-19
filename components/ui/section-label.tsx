@@ -13,14 +13,14 @@ export function SectionLabel({
 }: SectionLabelProps) {
   const variantStyles = {
     default: "text-white/70",
-    gold: "text-[#FFD700]",
-    teal: "text-[#AFECDB]",
+    gold: "text-[#FFD700]", // LVL 5 LIFE sub-brand
+    teal: "text-[#AFECDB]", // GYNERGY parent brand
   }
 
   return (
     <span
       className={cn(
-        "inline-block text-xs font-oswald font-semibold tracking-[0.2em] uppercase",
+        "inline-block text-xs font-heading font-bold tracking-[0.2em] uppercase",
         variantStyles[variant],
         className
       )}
@@ -61,11 +61,11 @@ export function SectionHeader({
           {label}
         </SectionLabel>
       )}
-      <h2 className="font-bebas text-4xl md:text-5xl lg:text-6xl text-white tracking-wide mb-4">
+      <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-white tracking-wide mb-4">
         {title.toUpperCase()}
       </h2>
       {subtitle && (
-        <p className="text-white/60 leading-relaxed font-inter">{subtitle}</p>
+        <p className="text-white/60 leading-relaxed font-body">{subtitle}</p>
       )}
     </div>
   )

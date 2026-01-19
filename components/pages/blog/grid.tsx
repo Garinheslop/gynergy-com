@@ -18,7 +18,7 @@ function PostCard({ post, index, isInView }: { post: BlogPost; index: number; is
     >
       <Link href={`/blog/${post.slug}`} className="block">
         {/* Image placeholder */}
-        <div className="relative aspect-[16/10] mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] border border-[#2E2E2E] group-hover:border-[#F8F812]/30 transition-all">
+        <div className="relative aspect-[16/10] mb-4 rounded-xl overflow-hidden bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] border border-[#2E2E2E] group-hover:border-[#AFECDB]/30 transition-all">
           <div className="absolute inset-0 flex items-center justify-center">
             {category?.icon ? (
               <span className="text-4xl">{category.icon}</span>
@@ -29,7 +29,7 @@ function PostCard({ post, index, isInView }: { post: BlogPost; index: number; is
             )}
           </div>
           {post.featured && (
-            <div className="absolute top-3 left-3 px-2 py-1 bg-[#F8F812] text-black text-xs font-bold rounded">
+            <div className="absolute top-3 left-3 px-2 py-1 bg-[#AFECDB] text-black text-xs font-bold rounded">
               Featured
             </div>
           )}
@@ -41,7 +41,7 @@ function PostCard({ post, index, isInView }: { post: BlogPost; index: number; is
         {/* Content */}
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-[#F8F812] text-xs font-medium uppercase tracking-wider">
+            <span className="text-[#AFECDB] text-xs font-medium uppercase tracking-wider">
               {category?.label}
             </span>
             <span className="text-white/30">·</span>
@@ -54,7 +54,7 @@ function PostCard({ post, index, isInView }: { post: BlogPost; index: number; is
             </span>
           </div>
 
-          <h3 className="text-lg font-bold text-white mb-2 font-inter group-hover:text-[#F8F812] transition-colors line-clamp-2">
+          <h3 className="text-lg font-bold text-white mb-2 font-body group-hover:text-[#AFECDB] transition-colors line-clamp-2">
             {post.title}
           </h3>
 
@@ -64,7 +64,7 @@ function PostCard({ post, index, isInView }: { post: BlogPost; index: number; is
 
           {/* Author */}
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full bg-[#F8F812]/10 flex items-center justify-center text-sm">
+            <div className="w-6 h-6 rounded-full bg-[#AFECDB]/10 flex items-center justify-center text-sm">
               {post.author.image}
             </div>
             <span className="text-white/50 text-xs">{post.author.name}</span>
@@ -90,7 +90,7 @@ export function BlogGrid() {
         {/* Featured posts - larger cards */}
         {featuredPosts.length > 0 && (
           <div className="mb-16">
-            <h2 className="text-xl font-bold text-white mb-8 font-inter">Featured Articles</h2>
+            <h2 className="text-xl font-bold text-white mb-8 font-body">Featured Articles</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featuredPosts.map((post, index) => (
                 <PostCard key={post.slug} post={post} index={index} isInView={isInView} />
@@ -101,7 +101,7 @@ export function BlogGrid() {
 
         {/* All posts */}
         <div>
-          <h2 className="text-xl font-bold text-white mb-8 font-inter">All Articles</h2>
+          <h2 className="text-xl font-bold text-white mb-8 font-body">All Articles</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {regularPosts.map((post, index) => (
               <PostCard key={post.slug} post={post} index={index + featuredPosts.length} isInView={isInView} />

@@ -5,6 +5,8 @@ import { useInView } from "framer-motion"
 import { useRef, useState } from "react"
 import { SectionHeader } from "@/components/ui/section-label"
 import { Button } from "@/components/ui/button"
+import { getAttributionData } from "@/lib/utm-tracking"
+import { trackConversion } from "@/components/analytics/google-analytics"
 
 export function CoachingApplication() {
   const ref = useRef(null)
@@ -17,17 +19,27 @@ export function CoachingApplication() {
     setIsSubmitting(true)
 
     const formData = new FormData(e.currentTarget)
+    const timeline = formData.get("timeline") as string
+    const investment = formData.get("investment") as string
+
+    // Get UTM attribution data
+    const attribution = getAttributionData()
+
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
       phone: formData.get("phone"),
-      occupation: formData.get("occupation"),
-      biggestChallenge: formData.get("biggestChallenge"),
-      goals: formData.get("goals"),
-      timeline: formData.get("timeline"),
-      investment: formData.get("investment"),
-      commitment: formData.get("commitment"),
-      source: "1on1-coaching-application"
+      tags: ["coaching-application", "1on1-coaching", "gynergy-com", `timeline-${timeline}`, `investment-${investment}`],
+      source: "gynergy.com/coaching",
+      customFields: {
+        ...attribution,
+        occupation: formData.get("occupation") as string,
+        biggest_challenge: formData.get("biggestChallenge") as string,
+        goals: formData.get("goals") as string,
+        timeline: timeline,
+        investment_readiness: investment,
+        commitment_reason: formData.get("commitment") as string,
+      }
     }
 
     try {
@@ -38,6 +50,9 @@ export function CoachingApplication() {
       })
 
       if (response.ok) {
+        // Track conversion in GA
+        trackConversion.coachingApplication()
+
         setIsSubmitted(true)
       }
     } catch (error) {
@@ -56,13 +71,13 @@ export function CoachingApplication() {
             animate={{ opacity: 1, scale: 1 }}
             className="max-w-2xl mx-auto text-center"
           >
-            <div className="bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] rounded-3xl border border-[#F8F812]/30 p-12">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#F8F812]/20 flex items-center justify-center">
-                <svg className="w-10 h-10 text-[#F8F812]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] rounded-3xl border border-[#AFECDB]/30 p-12">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#AFECDB]/20 flex items-center justify-center">
+                <svg className="w-10 h-10 text-[#AFECDB]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h2 className="text-3xl font-bold text-white mb-4 font-inter">Application Received!</h2>
+              <h2 className="text-3xl font-bold text-white mb-4 font-body">Application Received!</h2>
               <p className="text-white/70">
                 Thank you for applying. Our team will review your application and
                 reach out within 48 hours if you're a fit for private coaching.
@@ -79,7 +94,7 @@ export function CoachingApplication() {
       <div className="relative z-10 container mx-auto px-6">
         <SectionHeader
           label="Apply Now"
-          labelVariant="gold"
+          labelVariant="teal"
           title="Ready to Transform Your Life?"
           subtitle="Complete this application to be considered for private coaching. We review every application personally."
         />
@@ -102,7 +117,7 @@ export function CoachingApplication() {
                   type="text"
                   name="name"
                   required
-                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#F8F812]/50"
+                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#AFECDB]/50"
                   placeholder="Your full name"
                 />
               </div>
@@ -112,7 +127,7 @@ export function CoachingApplication() {
                   type="email"
                   name="email"
                   required
-                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#F8F812]/50"
+                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#AFECDB]/50"
                   placeholder="your@email.com"
                 />
               </div>
@@ -125,7 +140,7 @@ export function CoachingApplication() {
                   type="tel"
                   name="phone"
                   required
-                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#F8F812]/50"
+                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#AFECDB]/50"
                   placeholder="+1 (555) 000-0000"
                 />
               </div>
@@ -135,7 +150,7 @@ export function CoachingApplication() {
                   type="text"
                   name="occupation"
                   required
-                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#F8F812]/50"
+                  className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#AFECDB]/50"
                   placeholder="What do you do?"
                 />
               </div>
@@ -150,7 +165,7 @@ export function CoachingApplication() {
                 name="biggestChallenge"
                 required
                 rows={3}
-                className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#F8F812]/50 resize-none"
+                className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#AFECDB]/50 resize-none"
                 placeholder="Be specific about what's holding you back..."
               />
             </div>
@@ -164,7 +179,7 @@ export function CoachingApplication() {
                 name="goals"
                 required
                 rows={3}
-                className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#F8F812]/50 resize-none"
+                className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#AFECDB]/50 resize-none"
                 placeholder="Paint the picture of your ideal life..."
               />
             </div>
@@ -177,7 +192,7 @@ export function CoachingApplication() {
               <select
                 name="timeline"
                 required
-                className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white focus:outline-none focus:border-[#F8F812]/50"
+                className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white focus:outline-none focus:border-[#AFECDB]/50"
               >
                 <option value="">Select...</option>
                 <option value="immediately">Immediately</option>
@@ -195,7 +210,7 @@ export function CoachingApplication() {
               <select
                 name="investment"
                 required
-                className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white focus:outline-none focus:border-[#F8F812]/50"
+                className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white focus:outline-none focus:border-[#AFECDB]/50"
               >
                 <option value="">Select...</option>
                 <option value="yes-ready">Yes, I'm ready to invest</option>
@@ -213,7 +228,7 @@ export function CoachingApplication() {
                 name="commitment"
                 required
                 rows={3}
-                className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#F8F812]/50 resize-none"
+                className="w-full px-4 py-3 bg-[#0D0D0D] border border-[#2E2E2E] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-[#AFECDB]/50 resize-none"
                 placeholder="What makes this the right time for you?"
               />
             </div>

@@ -49,13 +49,13 @@ export function DateZeroTestimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-[#FFD700] text-sm font-medium tracking-wider uppercase font-oswald">
+          <span className="text-[#AFECDB] text-sm font-medium tracking-wider uppercase font-heading">
             TRANSFORMATIONS
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-4 mb-6 font-bebas">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-4 mb-6 font-display">
             LIVES CHANGED THROUGH GRATITUDE
           </h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto font-inter">
+          <p className="text-white/60 text-lg max-w-2xl mx-auto font-body">
             Real people, real transformations. Here's what happens when you commit
             to 45 days of intentional gratitude practice.
           </p>
@@ -74,28 +74,28 @@ export function DateZeroTestimonials() {
               {/* Stars - SVG instead of text */}
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-[#FFD700]" fill="currentColor" viewBox="0 0 24 24">
+                  <svg key={i} className="w-5 h-5 text-[#AFECDB]" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
                   </svg>
                 ))}
               </div>
 
               {/* Quote */}
-              <blockquote className="text-white/80 leading-relaxed mb-6 font-inter">
+              <blockquote className="text-white/80 leading-relaxed mb-6 font-body">
                 "{testimonial.quote}"
               </blockquote>
 
               {/* Author */}
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-[#FFD700]/10 flex items-center justify-center text-[#FFD700] font-bold font-oswald">
+                <div className="w-12 h-12 bg-[#AFECDB]/10 flex items-center justify-center text-[#AFECDB] font-bold font-heading">
                   {testimonial.initials}
                 </div>
                 <div>
-                  <p className="text-white font-semibold font-oswald">{testimonial.name}</p>
-                  <p className="text-white/50 text-sm font-inter">
+                  <p className="text-white font-semibold font-heading">{testimonial.name}</p>
+                  <p className="text-white/50 text-sm font-body">
                     {testimonial.location}
                   </p>
-                  <p className="text-[#AFECDB] text-xs font-inter mt-1">
+                  <p className="text-[#AFECDB] text-xs font-body mt-1">
                     {testimonial.transformation}
                   </p>
                 </div>
@@ -119,10 +119,10 @@ export function DateZeroTestimonials() {
               transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
               className="text-center"
             >
-              <p className="text-4xl lg:text-5xl font-bold text-[#FFD700] font-bebas mb-2">
+              <p className="text-4xl lg:text-5xl font-bold text-[#AFECDB] font-display mb-2">
                 {stat.value}
               </p>
-              <p className="text-white/50 text-sm font-inter">{stat.label}</p>
+              <p className="text-white/50 text-sm font-body">{stat.label}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -138,17 +138,17 @@ export function DateZeroTestimonials() {
             {/* Placeholder */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
-                <div className="w-20 h-20 mx-auto mb-4 bg-[#FFD700]/20 border-2 border-[#FFD700] flex items-center justify-center group-hover:bg-[#FFD700] group-hover:scale-110 transition-all">
+                <div className="w-20 h-20 mx-auto mb-4 bg-[#AFECDB]/20 border-2 border-[#AFECDB] flex items-center justify-center group-hover:bg-[#AFECDB] group-hover:scale-110 transition-all">
                   <svg
-                    className="w-8 h-8 text-[#FFD700] group-hover:text-black transition-colors ml-1"
+                    className="w-8 h-8 text-[#AFECDB] group-hover:text-black transition-colors ml-1"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
-                <p className="text-white font-medium font-oswald">Watch Transformation Stories</p>
-                <p className="text-white/50 text-sm mt-1 font-inter">Real journeys, real results</p>
+                <p className="text-white font-medium font-heading">Watch Transformation Stories</p>
+                <p className="text-white/50 text-sm mt-1 font-body">Real journeys, real results</p>
               </div>
             </div>
           </div>
