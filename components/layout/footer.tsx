@@ -12,6 +12,7 @@ const footerLinks = {
     { name: "Speaking", href: "/speaking" },
     { name: "Coaching", href: "/one-on-one-coaching" },
     { name: "Events", href: "/events" },
+    { name: "Partners", href: "/partners" },
   ],
   programs: [
     { name: "The 45 Day Awakening", href: "/date-zero" },

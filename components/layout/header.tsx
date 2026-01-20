@@ -28,6 +28,7 @@ const navigation = [
   { name: "1-on-1 Coaching", href: "/one-on-one-coaching" },
   { name: "Speaking", href: "/speaking" },
   { name: "Podcast", href: "/podcast" },
+  { name: "Partners", href: "/partners" },
 ]
 
 export function GynergyComHeader() {
