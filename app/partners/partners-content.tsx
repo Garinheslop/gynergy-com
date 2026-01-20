@@ -16,13 +16,6 @@ const currentPartners = [
     url: "https://aoebrotherhood.com"
   },
   {
-    name: "Rich Somers",
-    logo: "/partners/rich-somers-logo.png",
-    description: "Real estate investing and wealth building",
-    type: "Podcast Partner",
-    url: "https://richsomers.com"
-  },
-  {
     name: "Fit and Feminine",
     logo: "/partners/fit-feminine-logo.png",
     description: "Women's health and transformation",
@@ -43,7 +36,7 @@ const partnershipTypes = [
     title: "Affiliate Partners",
     description: "Earn commissions promoting GYNERGY programs to your audience. Get exclusive discount codes, marketing assets, and dedicated support.",
     benefits: [
-      "Up to 20% commission on referrals",
+      "Competitive commission structure",
       "Custom tracking links and dashboard",
       "Marketing assets and swipe copy",
       "Monthly payouts"
@@ -95,9 +88,9 @@ const sponsorshipOpportunities = [
     audience: "10K+ monthly listeners",
     description: "Reach driven individuals seeking transformation through our weekly podcast with Garin & Yesi.",
     options: [
-      { name: "Episode Sponsor", price: "$500/episode" },
-      { name: "Season Sponsor", price: "$5,000/season" },
-      { name: "Presenting Sponsor", price: "Custom" }
+      "Episode Sponsorship",
+      "Season Sponsorship",
+      "Presenting Sponsorship"
     ]
   },
   {
@@ -105,9 +98,9 @@ const sponsorshipOpportunities = [
     audience: "35 high-net-worth attendees",
     description: "Premium exposure at our Mexico service retreats with successful entrepreneurs and professionals.",
     options: [
-      { name: "Retreat Sponsor", price: "$2,500/retreat" },
-      { name: "Experience Sponsor", price: "$5,000/retreat" },
-      { name: "Title Sponsor", price: "Custom" }
+      "Retreat Sponsorship",
+      "Experience Sponsorship",
+      "Title Sponsorship"
     ]
   },
   {
@@ -115,9 +108,9 @@ const sponsorshipOpportunities = [
     audience: "Elite mastermind members",
     description: "Direct access to our highest-level community of founders, executives, and high performers.",
     options: [
-      { name: "Resource Partner", price: "$1,000/month" },
-      { name: "Exclusive Partner", price: "$2,500/month" },
-      { name: "Founding Partner", price: "Custom" }
+      "Resource Partnership",
+      "Exclusive Partnership",
+      "Founding Partnership"
     ]
   }
 ]
@@ -462,9 +455,9 @@ export function PartnersPageContent() {
                   <p className="text-white/40 text-xs font-body uppercase tracking-wider mb-4">Packages</p>
                   <div className="space-y-3">
                     {opp.options.map((option) => (
-                      <div key={option.name} className="flex justify-between items-center">
-                        <span className="text-white/70 text-sm font-body">{option.name}</span>
-                        <span className="text-[#AFECDB] font-heading font-semibold">{option.price}</span>
+                      <div key={option} className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-[#AFECDB] flex-shrink-0" />
+                        <span className="text-white/70 text-sm font-body">{option}</span>
                       </div>
                     ))}
                   </div>
