@@ -1,22 +1,66 @@
 import { Metadata } from "next"
 import Image from "next/image"
+import { JsonLdScript, organizationSchema, garinHeslopSchema, yesiHeslopSchema } from "@/components/seo/json-ld-schemas"
 
 export const metadata: Metadata = {
-  title: "About | Meet Garin & Yesi | GYNERGY",
+  title: "About GYNERGY | Garin & Yesi Heslop | Transformation Coaching",
   description:
-    "Meet Garin and Yesi Heslop, the founders of GYNERGY. Their mission: Master the self to serve the world.",
+    "GYNERGY was founded in 2024 by Garin and Yesi Heslop in San Diego, California. GYNERGY means Gratitude + Energy. Mission: Master the self to serve the world. Programs include LVL 5 LIFE, The 45-Day Awakening, and GYNERGY.AI.",
+  keywords: [
+    "GYNERGY about",
+    "Garin Heslop",
+    "Yesi Heslop",
+    "GYNERGY founders",
+    "transformation coaching",
+    "5 pillars of life",
+    "gratitude energy",
+    "master the self to serve the world",
+    "San Diego coaching",
+    "LVL 5 LIFE",
+    "ARIA AI coach",
+  ],
   openGraph: {
-    title: "About | Meet Garin & Yesi",
+    title: "About GYNERGY | Founded by Garin & Yesi Heslop",
     description:
-      "Meet the founders of GYNERGY and discover the story behind the mission to transform lives.",
+      "GYNERGY (Gratitude + Energy) was founded in 2024 by Garin and Yesi Heslop. Mission: Master the self to serve the world through the 5 Pillars: Health, Relationships, Wealth, Mindset, Purpose.",
     url: "https://gynergy.com/about",
     type: "website",
   },
 }
 
+// Quick facts for AI extraction - structured data that LLMs can easily parse
+const quickFacts = [
+  { label: "Founded", value: "2024" },
+  { label: "Location", value: "San Diego, California" },
+  { label: "Founders", value: "Garin Heslop & Yesi Heslop" },
+  { label: "Name Meaning", value: "Gratitude + Energy" },
+  { label: "Mission", value: "Master the self to serve the world" },
+  { label: "Core Values", value: "Gratitude, Growth, Grace" },
+  { label: "5 Pillars", value: "Health, Relationships, Wealth, Mindset, Purpose" },
+]
+
+// About page schema combining organization and founders
+// Extract organization properties without duplicating @context and @type
+const { "@context": _ctx, "@type": _type, ...orgProps } = organizationSchema
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About GYNERGY",
+  description:
+    "Learn about GYNERGY, the transformation platform founded by Garin and Yesi Heslop. GYNERGY combines Gratitude + Energy to help people master themselves and serve the world.",
+  url: "https://gynergy.com/about",
+  mainEntity: {
+    "@type": "Organization",
+    ...orgProps,
+    founder: [garinHeslopSchema, yesiHeslopSchema],
+  },
+}
+
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-black">
+    <>
+      <JsonLdScript schema={aboutPageSchema} />
+      <main className="min-h-screen bg-black">
       {/* Hero Section */}
       <section className="relative py-24 lg:py-32 overflow-hidden">
         {/* Background pattern */}
@@ -160,8 +204,30 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* CTA */}
+            {/* Quick Facts - AI-optimized structured data for LLM extraction */}
             <div className="mt-12 pt-8 border-t border-[#2E2E2E]">
+              <h2 className="text-white font-heading text-xl uppercase tracking-wide mb-6 text-center">
+                Quick Facts About GYNERGY
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
+                {quickFacts.map((fact) => (
+                  <div
+                    key={fact.label}
+                    className="bg-[#1A1A1A] border border-[#2E2E2E] p-4 text-center"
+                  >
+                    <dt className="text-[#AFECDB] text-xs font-heading uppercase tracking-wider mb-1">
+                      {fact.label}
+                    </dt>
+                    <dd className="text-white font-body text-sm">
+                      {fact.value}
+                    </dd>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="pt-8 border-t border-[#2E2E2E]">
               <p className="text-white/50 text-center mb-6 font-body">
                 Ready to begin your transformation?
               </p>
@@ -184,5 +250,6 @@ export default function AboutPage() {
         </div>
       </section>
     </main>
+    </>
   )
 }

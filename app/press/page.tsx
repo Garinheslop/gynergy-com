@@ -1,18 +1,87 @@
 import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
+import { JsonLdScript } from "@/components/seo/json-ld-schemas"
 
 export const metadata: Metadata = {
   title: "Press & Media | GYNERGY",
   description:
-    "Media resources, founder bios, story angles, and press contact for GYNERGY. Transform your coverage with our press kit.",
+    "Media resources, founder bios, story angles, and press contact for GYNERGY. Garin & Yesi Heslop founded GYNERGY in 2024 in San Diego. GYNERGY means Gratitude + Energy.",
+  keywords: [
+    "GYNERGY press kit",
+    "Garin Heslop bio",
+    "Yesi Heslop bio",
+    "GYNERGY founders",
+    "transformation coaching press",
+    "ARIA AI coaching",
+    "LVL 5 LIFE mastermind",
+    "Fit and Feminine program",
+  ],
   openGraph: {
     title: "Press & Media | GYNERGY",
     description:
-      "Media resources and press kit for GYNERGY - the transformation platform by Garin & Yesi Heslop.",
+      "Media resources and press kit for GYNERGY - the transformation platform by Garin & Yesi Heslop. Founded 2024 in San Diego.",
     url: "https://gynergy.com/press",
     type: "website",
   },
+}
+
+// FAQ data for both display and schema markup
+const faqData = [
+  {
+    question: "What is GYNERGY?",
+    answer:
+      "GYNERGY is a transformation platform founded by Garin and Yesi Heslop that helps individuals master themselves to serve the world. It combines coaching programs, AI technology (ARIA), and community to help people transform across 5 pillars: Health, Relationships, Wealth, Mindset, and Purpose.",
+  },
+  {
+    question: "What does GYNERGY mean?",
+    answer:
+      "GYNERGY is a combination of 'Gratitude' and 'Energy.' The name reflects the foundational belief that gratitude is the starting point of all lasting transformation, and that positive energy flows from a grateful mindset.",
+  },
+  {
+    question: "Who founded GYNERGY?",
+    answer:
+      "GYNERGY was founded in 2024 by Garin Heslop and Yesi Heslop, a married couple based in San Diego, California. Garin brings expertise in business and high-performance coaching, while Yesi specializes in holistic wellness and feminine energy.",
+  },
+  {
+    question: "What programs does GYNERGY offer?",
+    answer:
+      "GYNERGY offers several programs: The 45-Day Awakening ($1,497) for personal transformation through gratitude, LVL 5 LIFE ($15,000) an elite men's mastermind, Fit & Feminine (launching May 2026) for women's wellness, Service Retreats in Ensenada Mexico, and GYNERGY.AI ($49-197/month) an AI-powered coaching platform.",
+  },
+  {
+    question: "What is ARIA?",
+    answer:
+      "ARIA is GYNERGY's AI-powered coaching assistant that serves as your 'Personal Board of Directors.' It provides 24/7 personalized guidance across all 5 pillars of life—Health, Relationships, Wealth, Mindset, and Purpose—learning and adapting to your unique journey.",
+  },
+  {
+    question: "Where is GYNERGY based?",
+    answer:
+      "GYNERGY is headquartered in San Diego, California. The company also conducts regular service retreats in Ensenada, Mexico, where participants build homes for families in need.",
+  },
+  {
+    question: "What is the GYNERGY mission?",
+    answer:
+      "GYNERGY's mission is 'Master the Self to Serve the World.' This reflects the belief that personal transformation should ultimately lead to positive impact on others—through better relationships, leadership, and direct service.",
+  },
+  {
+    question: "What are the 5 Pillars of GYNERGY?",
+    answer:
+      "The 5 Pillars are: Health (physical vitality and energy), Relationships (deep connection and partnership), Wealth (financial abundance and freedom), Mindset (mental frameworks and beliefs), and Purpose (legacy and contribution). These form the foundation of all GYNERGY programs.",
+  },
+]
+
+// FAQ Schema for AI search optimization
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqData.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
 }
 
 const storyAngles = [
@@ -74,8 +143,12 @@ const speakingTopics = {
 
 export default function PressPage() {
   return (
-    <main className="min-h-screen bg-black">
-      {/* Hero Section */}
+    <>
+      {/* FAQ Schema for AI Search Optimization */}
+      <JsonLdScript schema={faqSchema} />
+
+      <main className="min-h-screen bg-black">
+        {/* Hero Section */}
       <section className="relative py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div
@@ -552,34 +625,87 @@ export default function PressPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 lg:py-32 bg-black">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display text-4xl md:text-5xl text-white tracking-tight mb-6">
-              READY TO FEATURE GYNERGY?
-            </h2>
-            <p className="text-white/60 font-body text-lg mb-8">
-              We&apos;re available for interviews, podcast appearances, expert commentary,
-              and feature stories. Let&apos;s connect.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href="mailto:media@gynergy.com"
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#AFECDB] text-black font-heading font-bold uppercase tracking-wider hover:bg-[#AFECDB]/90 transition-colors"
-              >
-                Contact Media Team
-              </a>
-              <Link
-                href="/speaking"
-                className="inline-flex items-center justify-center px-8 py-4 bg-transparent border border-[#AFECDB] text-[#AFECDB] font-heading font-bold uppercase tracking-wider hover:bg-[#AFECDB]/10 transition-colors"
-              >
-                Book for Speaking
-              </Link>
+        {/* FAQ Section - Optimized for AI Search */}
+        <section className="py-24 lg:py-32 bg-black">
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-16">
+                <span className="inline-block px-4 py-2 bg-[#AFECDB]/10 border border-[#AFECDB]/30 text-[#AFECDB] text-xs font-heading uppercase tracking-wider mb-6">
+                  Frequently Asked Questions
+                </span>
+                <h2 className="font-display text-4xl md:text-5xl text-white tracking-tight mb-4">
+                  ABOUT GYNERGY
+                </h2>
+                <p className="text-white/60 font-body max-w-2xl mx-auto">
+                  Quick answers to common questions about GYNERGY, our founders, and our programs.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                {faqData.map((faq, index) => (
+                  <details
+                    key={index}
+                    className="group bg-[#1A1A1A] border border-[#2E2E2E] hover:border-[#AFECDB]/30 transition-colors"
+                  >
+                    <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
+                      <h3 className="font-heading text-lg text-white uppercase tracking-wide pr-4">
+                        {faq.question}
+                      </h3>
+                      <svg
+                        className="w-5 h-5 text-[#AFECDB] flex-shrink-0 transition-transform group-open:rotate-180"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </summary>
+                    <div className="px-6 pb-6">
+                      <p className="text-white/70 font-body leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </details>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+
+        {/* CTA */}
+        <section className="py-24 lg:py-32 bg-gradient-to-b from-black to-[#0D0D0D]">
+          <div className="container mx-auto px-6">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="font-display text-4xl md:text-5xl text-white tracking-tight mb-6">
+                READY TO FEATURE GYNERGY?
+              </h2>
+              <p className="text-white/60 font-body text-lg mb-8">
+                We&apos;re available for interviews, podcast appearances, expert commentary,
+                and feature stories. Let&apos;s connect.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <a
+                  href="mailto:media@gynergy.com"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-[#AFECDB] text-black font-heading font-bold uppercase tracking-wider hover:bg-[#AFECDB]/90 transition-colors"
+                >
+                  Contact Media Team
+                </a>
+                <Link
+                  href="/speaking"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-transparent border border-[#AFECDB] text-[#AFECDB] font-heading font-bold uppercase tracking-wider hover:bg-[#AFECDB]/10 transition-colors"
+                >
+                  Book for Speaking
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
   )
 }

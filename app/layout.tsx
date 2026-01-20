@@ -6,6 +6,7 @@ import { CartProvider } from "@/lib/cart-context"
 import { CartDrawer } from "@/components/shop/cart-drawer"
 import { ARIAChatWidget } from "@/components/aria/chat-widget"
 import { TrackingProvider } from "@/components/analytics/tracking-provider"
+import { AllSchemasScript } from "@/components/seo/json-ld-schemas"
 import "./globals.css"
 
 // Google Fonts as fallbacks for self-hosted brand fonts
@@ -93,6 +94,9 @@ export default function RootLayout({
       lang="en"
       className={`${barlowCondensed.variable} ${dmSans.variable}`}
     >
+      <head>
+        <AllSchemasScript />
+      </head>
       <body className="min-h-screen bg-black text-white antialiased">
         <TrackingProvider>
           <CartProvider>
