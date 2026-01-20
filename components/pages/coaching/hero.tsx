@@ -52,9 +52,9 @@ export function CoachingHero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="relative bg-gradient-to-b from-[#1A1A1A] to-[#0D0D0D] border border-[#2E2E2E] hover:border-[#AFECDB]/30 transition-all group"
           >
-            {/* Scarcity Badge */}
+            {/* Exclusivity Badge */}
             <div className="absolute -top-3 right-4 bg-[#AFECDB] text-black px-3 py-1 text-xs font-bold font-heading z-10">
-              3 SPOTS LEFT
+              BY APPLICATION ONLY
             </div>
 
             <div className="p-8">
