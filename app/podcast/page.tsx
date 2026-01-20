@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import { PodcastHero } from "@/components/pages/podcast/hero"
+import { PodcastYouTubeEpisodes } from "@/components/pages/podcast/youtube-episodes"
 import { PodcastEpisodes } from "@/components/pages/podcast/episodes"
 import { PodcastPlatforms } from "@/components/pages/podcast/platforms"
 import { PodcastHost } from "@/components/pages/podcast/host"
@@ -22,6 +23,7 @@ export default function PodcastPage() {
   return (
     <>
       <PodcastHero />
+      <PodcastYouTubeEpisodes />
       <PodcastEpisodes />
       <PodcastPlatforms />
       <PodcastHost />
