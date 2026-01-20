@@ -71,6 +71,37 @@ export function CoachingPackages() {
           subtitle="All packages are by application only. We'll determine the best fit during your discovery call."
         />
 
+        {/* Framework Parity Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-12 mb-8 max-w-3xl mx-auto"
+        >
+          <div className="border border-[#AFECDB]/20 bg-gradient-to-br from-[#AFECDB]/5 to-transparent rounded-xl p-6 md:p-8 text-center">
+            <h3 className="text-white font-oswald text-lg uppercase tracking-wide mb-4">
+              The Same 5-Pillar Framework
+            </h3>
+            <p className="text-white/60 text-sm leading-relaxed mb-4">
+              Whether you choose 1-on-1 coaching or LVL 5 LIFE, you get the same proven
+              transformation methodology:
+            </p>
+            <div className="flex flex-wrap justify-center gap-3 mb-4">
+              {["Health", "Relationships", "Wealth", "Mindset", "Purpose"].map((pillar) => (
+                <span
+                  key={pillar}
+                  className="px-3 py-1 bg-[#AFECDB]/10 border border-[#AFECDB]/20 text-[#AFECDB] text-xs font-oswald uppercase tracking-wider"
+                >
+                  {pillar}
+                </span>
+              ))}
+            </div>
+            <p className="text-white/40 text-xs">
+              The only difference: 1-on-1 = private attention | LVL 5 LIFE = community acceleration
+            </p>
+          </div>
+        </motion.div>
+
         <div className="mt-16 grid lg:grid-cols-3 gap-6">
           {packages.map((pkg, index) => (
             <motion.div

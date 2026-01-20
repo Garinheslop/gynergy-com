@@ -5,6 +5,7 @@ import { CoachingPackages } from "@/components/pages/coaching/packages"
 import { CoachingProcess } from "@/components/pages/coaching/process"
 import { CoachingTestimonials } from "@/components/pages/coaching/testimonials"
 import { CoachingApplication } from "@/components/pages/coaching/application"
+import { CoachingComparison } from "@/components/pages/coaching/comparison"
 
 export const metadata: Metadata = {
   title: "1-on-1 Coaching with Garin & Yesi | GYNERGY",
@@ -25,6 +26,7 @@ export default function OneOnOneCoachingPage() {
       <CoachingHero />
       <CoachingApproach />
       <CoachingPackages />
+      <CoachingComparison />
       <CoachingProcess />
       <CoachingTestimonials />
       <CoachingApplication />
