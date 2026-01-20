@@ -16,9 +16,17 @@ const navigation = [
       { name: "Fit & Feminine", href: "/fit-and-feminine" },
     ],
   },
+  {
+    name: "Shop",
+    href: "#",
+    children: [
+      { name: "All Products", href: "/shop" },
+      { name: "Digital Products", href: "/shop/digital" },
+      { name: "GYNERGY.AI", href: "/gynergy-ai" },
+    ],
+  },
   { name: "1-on-1 Coaching", href: "/one-on-one-coaching" },
   { name: "Speaking", href: "/speaking" },
-  { name: "Events", href: "/events" },
   { name: "Podcast", href: "/podcast" },
 ]
 
