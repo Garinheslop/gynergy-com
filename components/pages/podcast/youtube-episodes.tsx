@@ -10,34 +10,34 @@ import { SectionHeader } from "@/components/ui/section-label"
 const youtubeEpisodes = [
   {
     id: "featured",
-    videoId: "dQw4w9WgXcQ", // Replace with actual GYNERGY Effect video ID
-    title: "The GYNERGY Effect: Transforming Lives Together",
-    description: "Join Garin & Yesi as they share insights on building a life of purpose, connection, and growth.",
+    videoId: "Wla0f3gVD-c",
+    title: "Becoming The Man He Needed Most — With Rick Niemi",
+    description: "An inspiring conversation about personal transformation, becoming the man your family needs, and building a life of purpose.",
     featured: true
   },
   {
     id: "ep1",
-    videoId: "dQw4w9WgXcQ", // Replace with actual video ID
-    title: "Breaking Through Limiting Beliefs",
-    description: "Discover the mental frameworks that high achievers use to overcome self-doubt.",
+    videoId: "2z3sogK3KmQ",
+    title: "How to Build Structure for the Life You Desire",
+    description: "Learn the frameworks and systems that help you create lasting change and build the life you truly want.",
   },
   {
     id: "ep2",
-    videoId: "dQw4w9WgXcQ", // Replace with actual video ID
-    title: "The Art of Deep Connection in Relationships",
-    description: "How to build relationships that fuel your growth and bring lasting fulfillment.",
+    videoId: "pSe4wMGPOgg",
+    title: "3 Questions That Will Change How You Plan 2026",
+    description: "Strategic questions to help you gain clarity and design your most intentional year yet.",
   },
   {
     id: "ep3",
-    videoId: "dQw4w9WgXcQ", // Replace with actual video ID
-    title: "Health Optimization for High Performers",
-    description: "Science-backed strategies for peak physical performance.",
+    videoId: "xGN3CT6b38M",
+    title: "You're Not Broken, You're Healing — With Kara Love",
+    description: "A powerful discussion on healing trauma in your body and embracing the journey of transformation.",
   },
   {
     id: "ep4",
-    videoId: "dQw4w9WgXcQ", // Replace with actual video ID
-    title: "Finding Your Purpose: A Framework",
-    description: "A step-by-step approach to discovering work that lights you up.",
+    videoId: "YlVM8esDGiU",
+    title: "From War-Torn Childhood to AI Innovation — Dr. Sasha Banjac",
+    description: "An incredible story of resilience, genius, and using technology to transform lives.",
   },
 ]
 
